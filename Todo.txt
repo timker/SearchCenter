@@ -5,6 +5,14 @@ This is mainly a junk file now, needs to be tidied
 
 
 
+bug update old bad imdb files,
+manifest v2.0
+view icon
+remove bug for textbox focus, popup.html
+store in local storage
+rightclick history does not work... possible all reight click options in popup.html
+
+
 
 
 
