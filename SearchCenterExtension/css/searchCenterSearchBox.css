@@ -1,0 +1,137 @@
+.searchCenterSearchBox {
+	/*background-color:Orange;*/
+	/*background-color:#DBE8F9;*//* #EBEFF9;*/
+	position:fixed;
+	left:0px;
+	top:0px;
+	width:100%;
+	padding:2px;
+	z-index:100000;
+	background:-webkit-gradient(linear, 0% 30%, 0% 100%, from(#E4EDF9), to(#DBE8F9));
+	font-family:Lucida Sans;
+	border-bottom:solid 1px #787CF9;
+	 -webkit-transition: all .3s;
+
+	
+	margin:0px 0px 0px 0px;
+	font-size: 16px;
+	font-style:normal;
+	font-weight:normal;
+	
+} 
+
+.searchCenterSearchBoxHide
+{
+  /*  opacity:0.0;*/
+/* top:-70px;*/
+    /*display:none;*/
+    -webkit-transform: rotate3d(1, 0, 0, 90deg);
+    
+   /* background-color:Red;*/
+    /*opacity .5;*/
+   /*  -webkit-transition: opacity .15s;*/
+    /*	transform: rotate3d(1,1,0, 45deg);*/
+    }
+
+.searchCenterSearchBox input#searchCenterInput
+{
+	float:left;
+	padding:0px;
+	float:left;
+	width:30%;
+	margin-left:30px;
+}
+
+.searchCenterSearchBox ul 
+{
+	line-height: normal;
+	list-style-image:none;
+	display:list-item;
+	 list-style-type:none; 
+	 float:left; 
+	 
+	 margin: 0px 0px 2px 0px;
+	/* margin-bottom: 2px;*/
+	 padding-left:10px
+	 
+}
+
+.searchCenterSearchBox ul li   
+{
+	margin:0px;
+	float:left;
+	padding-left:10px;
+ }
+
+.searchCenterSearchBox ul li div 
+{
+	
+	background-color: #FDFDF7;
+	border-color: #E5E6E0;
+	border-width: thick;
+	border: 2px solid #E5E6E0; /*width:auto;*/
+	-webkit-border-radius: 8px;
+	/*reset*/
+	width:auto;
+                                 /*  border-color:transparent;*/
+}
+    
+.searchCenterSearchBox ul li div 
+{
+	height:16px;
+	border: 1px  solid white;
+	border-style:solid;
+	padding: 3px;
+	float: left;
+	cursor:pointer;
+	-webkit-border-radius: 6px;
+	border-color: #EBEFF9;
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0, 0, 0.4);
+	background:-webkit-gradient(linear, 0% 70%, 0% 100%, from(#FDFDF7), to(#B5C7DE));
+}
+
+  .searchCenterSearchBox ul li div:hover 
+  {
+
+
+/*background-color:*/ /*#FDFDF7; *//*#EBEFF9*/
+
+ /* -webkit-transition: border-color 2s ;*/
+	
+}
+                                  
+.searchCenterSearchBox ul li div:hover
+{
+	background-color: #FAFAF0;
+	cursor: pointer; /*  color:#555555;*/
+	-webkit-transform: rotate(0deg) scale(1.03);
+	-webkit-box-shadow: 2px 2px 2px rgba(0,0, 0, 0.4);
+}
+
+  .smallEngineList  .searchEngine:active, .searchEngine[selected="selected"], .searchEngine:hover[selected="selected"] 
+  {
+  	border-color: #B5C7DE;
+  	background:-webkit-gradient(linear, 0% 0%, 0% 70%, from(#B5C7DE), to(#FDFDF7));
+    -webkit-box-shadow: 0px 0px 0px rgba(0,0, 0, 0.4);
+  	}
+  	
+.smallEngineList  .searchEngine:active img,.smallEngineList .searchEngine[selected="selected"]
+{
+-webkit-transform: rotate(0deg) scale(.83);
+}
+
+.searchCenterSearchBox ul li div img {
+                                   width:16px;height:16px; vertical-align:baseline;
+                                   
+                                   /*reset */
+                                   margin:0px;
+                                   border:0px;
+                                   }
+
+
+
+
+
+.section-close-button {    float:right;  -webkit-appearance: none;  -webkit-transition: opacity .15s;  background-color: transparent;  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6ElEQVQ4jd2RMU5DMRBE346rtJEov4RSpEBQc4uIeyAF6LgHV6BCQqLkANyBioIOJYCUX4TKuzS2lPD9RQ1TrveNx2P4l7oBDhvzWTnbU2rAvaR5RLwCfYUlLSNiA5wCT2MGz5LmZvZhZkcR8QZMJV24+0bSKiJugW0FrBG1k7Qws6+ImLj7FEDSp7vfAevd5ZbBnklNmXN++AkDaMQglZtTibsd2WsazCRdDhxTOgO6wbwBL0th7+5+HxEvkk6AbGbHpdj6O4MEV+7eS1rtFLbOOT9GxKR0shh7TtU1cNCYd8D5b/Af1Dfnn12HxVyf1AAAAABJRU5ErkJggg==);  background-position: center center;  background-repeat: no-repeat;  border: 0;  height: 21px;   margin-top:1px;  margin-right: 5px;   width: 21px;  /*position: absolute;  right: -21px;  top: 50%;   opacity: 0;  z-index: 3;*/}.section-close-button:hover {  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVQ4jcWSMY4CMQxF3yCqLfcMHGMuMl2KRDlBqqlXnAAJWgrOscVKFNOm3GYaCqBdIWYK0xhkscBQIGHJihL7f9vfgXdbYS8iUgIT4Lcoip9nY5eEqqpWwNE5t1TAYMwSOOAI7IHWe78QkdKAD8AOaDX3fwfOuSXQAg2QQwhzfTsAWyCnlKY3OziTeO8XQAbWem7Uc13XX3fBliSEMDckDdDcA49vkfR9/wF8aut/AF3XjR5WPlc3gm20+rd6E2OcPZzfgLfozCmlqRKtUWGH1rjDCCYiZYxxZjTJg2u8XpUV9jr2uq/8NjsB7AbFDdzs+OIAAAAASUVORK5CYII=);
+  
+}

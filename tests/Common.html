@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+<script type="text/javascript" src="../SearchCenterExtension/js/common.js"></script>
+  <script>
+      $(document).ready(function () {
+
+          module("GetDomain");
+          test("GetDomain simple", function () {
+
+              var domain = getDomain("http://google.com/");
+              //ok(true, "not done");
+              equal(domain, "http://google.com/", "get domain failed");
+
+          });
+
+
+          test("GetDomain with null", function () {
+
+              var domain = getDomain(null);
+              //ok(true, "not done");
+              equal(domain, null, "get domain failed");
+
+          });
+
+
+          test("GetDomain localfile", function () {
+
+              // var domain = getDomain("file:///C:/Projects/extensions.chrome.angryturtle.net/SearchCenter/branches/Dev/tests/Common.html");
+              //ok(true, "not done");
+              // equal(domain, "file:///", "get domain failed");
+             // Error();
+          });
+
+          test("GetDomain chrome page", function () {
+
+              var domain = getDomain("chrome://settings/extensions");
+              //ok(true, "not done");
+              Error();
+              //equal(domain, "chrome://settings/", "get domain failed");
+
+          });
+
+
+
+      });
+  </script>
+  
+</head>
+<body>
+  <h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
+</body>
+</html>

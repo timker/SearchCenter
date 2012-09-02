@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<script type="text/javascript">
+function handleEvent(e)
+{
+    var eventLog = document.getElementById('eventLog');
+    var entry = document.createElement('div');
+    entry.innerHTML = 'type: ' + e.type + ', keycode: ' + e.keyCode + ', charcode: ' + e.charCode + ', ctrlKey: ' + e.ctrlKey;
+    eventLog.appendChild(entry);
+}
+
+function initevent()
+{
+    document.addEventListener('keydown', handleEvent, false);
+    document.addEventListener('keypress', handleEvent, false);
+}
+</script>
+
+<body onLoad="initevent();">
+<div id="eventLog">
+<div>Keydown and keypress events will be logged below:<br/><br/></div>
+</div>
+</body>
+</html>

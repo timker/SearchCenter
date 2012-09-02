@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function load() {
+            var debugList = document.getElementById("debugList");
+            
+            
+        }
+
+        ///can we be sure that this won't be called before the page has loaded
+        //race condition
+        this.DisplayLog = function(object) {
+
+            debugList.appendChild(document.createTextNode(object.toString()));
+            debugList.appendChild(document.createElement("br"));
+ 
+        }
+    
+    </script>
+</head>
+<body onload="">
+<div>remember these calls are called asyc so may not be in the correct order
+
+.... we could have a date colum
+</div>
+
+<div id="debugList"></div>
+
+<div style="display:none">
+
+<div style="border-color:Red;">
+<div style="float:left">left</div>
+<div style="float:right;display:none">right1</div>
+<div style="float:left;clear:left">left2</div>
+<div style="float:right;clear:right;display:none">right2</div>
+<div style="float:left;clear:left">left3</div>
+<div style="float:right;clear:right">right3</div>
+</div>
+
+
+
+
+
+                suzzle
+                <form  method="post" enctype="multipart/form-data">
+                <input id="File1" type="file"   />
+                <input type="button" onclick="stuff()" />
+                <img src="file:///D:/dev/Invensys/OCR/Main/Resources/Collapse%20Down.png" />
+                <script>
+
+                    var desktop = google.gears.factory.create('beta.desktop');
+                    desktop.openFiles(selectFilesCallback);
+
+
+                    function selectFilesCallback(files) {
+                      //  $.each(files, function(k, file) {
+                            // this code actually goes through a queue, and creates some status bars
+                            // but it is unimportant to show here...
+                            sendFile(file[0]);
+                        //});
+                    }
+
+
+                    function sendFile(file) {
+                        google.gears.factory.create('beta.httprequest');
+                        request.open('PUT', upl.url);
+                        request.setRequestHeader('filename', file.name);
+                        request.upload.onprogress = function(e) {
+                            // gives me % status updates...  allows e.loaded/e.total
+                        };
+                        request.onreadystatechange = function() {
+                            if (request.readyState == 4) {
+                                // completed the upload!
+                            }
+                        };
+                        request.send(file.blob);
+                        return request;
+                    }
+
+                    function stuff() {
+                        alert("stuff");
+                        var input = document.getElementById("File1");
+                    }
+                </script>
+                </form>
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

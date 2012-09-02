@@ -1,0 +1,32 @@
+﻿{ 
+  "name": "Search Center",
+  "version": "3.7.4",
+  "description": "Quickly Search & re-search multiple sites without having to type your search terms again and again",
+  "permissions": [
+	"contextMenus",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+	"chrome://favicon/"
+   ],  
+  "browser_action": {
+    "default_icon": "images/spinWorld.png",
+    "popup": "popup.html",
+    "default_title": "Search Center"    
+                  
+   },
+   "background_page": "background.html",
+   "minimum_chrome_version" : "6" ,
+  "options_page": "options.html",
+  "icons": { "128": "images/spinWorld.png"},
+  "content_scripts": [
+    {
+      "matches": ["http://mycroft.mozdev.org/*"],
+      "js": ["contentScripts/mycroft.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
+		
+
+

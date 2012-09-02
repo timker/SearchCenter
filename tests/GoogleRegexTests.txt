@@ -1,0 +1,19 @@
+http://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=searchcenter
+pass end
+http://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=
+fail end empty
+http://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=searchcenter&askjdhksa
+pass only up to &
+http://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=try+again
+pass try+again
+http://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&f&sourceid=chrome&ie=UTF-8&try+again
+fail no q=
+http://www.google.com/search?q=1C1GGLS_en-GBGB291US304&f&sourceid=chrome&ie=UTF-8&try+again+
+pass on ?q=
+bhttp://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=searchcenter
+fail bad start
+hbhttp://www.google.com/search?rlz=1C1GGLS_en-GBGB291US304&aq=f&sourceid=chrome&ie=UTF-8&q=searchcenter
+fail start with h but not http
+
+aq= should fail
+q& should fail

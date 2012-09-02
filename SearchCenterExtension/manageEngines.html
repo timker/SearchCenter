@@ -1,0 +1,905 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Manage Engines</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <link href="css/options.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+    
+    .debugOff .debug
+    {
+    	display:none;
+    }
+	
+	body
+	{
+		margin:0px;margin-top:8px;
+	}
+    	    
+
+/*.engineListContainer
+{
+	width:80%;
+	}
+	
+	.engineList
+	{
+		     overflow:hidden;
+     margin-left: auto;
+     margin-right: auto;
+     display: table; 
+		}
+*/
+.bottomMenuBuffer
+{
+	height:80px;
+	clear:both;
+	}
+
+.bottomMenuContainer{position:fixed;bottom:-89px;
+           width: 100%;
+}
+.bottomMenuContainerShow{
+         bottom:0px;  
+         -webkit-transition: bottom .3s
+}
+  .bottomMenu 
+  {
+     background-color:#EBEFF9;
+     border: 2px solid #B5C7DE;
+     border-bottom:0px; 
+     -webkit-border-top-left-radius:20px;
+     -webkit-border-top-right-radius:20px;
+     padding:10px;
+     overflow:hidden;
+     margin-left: auto;
+     margin-right: auto;
+     display: table; 
+  }
+            
+                    
+.bottomMenuButton { float:left;border-width:2px;border-style:solid;border-color:#EBEFF9;-webkit-border-radius:4px;padding:3px;margin-left:10px;margin-right:10px; -webkit-transition: background .5s ; }
+.bottomMenuButton:hover { background:#B5C7DE;cursor:pointer; -webkit-transition: background .1s ;}
+.bottomMenuButton:active { background:#FDFDF7; }
+.bottomMenuButton img { margin-left:auto;margin-right:auto;display: block; width:40px }
+
+
+/* dragging view for trash */
+/*.draggingItem .trash.engineDraggable*/ /* , .draggingEngine .trash.engineDraggable *//* { border-color:#B5C7DE;border-style:solid; cursor:pointer;-webkit-transition: background 0s }*/
+/*.draggingEngine .engineGroup.engineDraggable {border-color:Red;}*/
+
+
+/*Groupable*/
+
+/*trash button drag*/
+.trashable .trashable { border-color:#B5C7DE;border-style:solid; cursor:pointer;-webkit-transition: background 0s;-webkit-transition: border 0.3s }
+
+/*.moveable {display:none;}
+.mainMoveable*/ /*.moveable {position:absolute;display:block;background-color:Blue;width:20px;height:30px;float:left;z-index:999;}
+*/
+
+
+
+/*.dropZone{display:none;}  
+.mainMoveable  .dropZone,.groupable  .dropZone {display:block; border-color:Green;background-color:Green;position:absolute;z-index:999;height:30px;width:150px;}
+*/
+
+ 
+ /* move buttons */
+ /* default drop */ 
+  .moveEngineUpDrop ,  .moveEngineDownDrop, .canGroupDrop {border-color:#B5C7DE;border-width:1px;border-style:solid;position:absolute;margin:0;padding:0;background-color:#EBEFF9;height:27px;margin-top:2px;}
+/*default move*/
+  .moveEngineUpDrop ,  .moveEngineDownDrop { width:25px;opacity:0.0;}
+ /*   .moveEngineUpDrop ,  .moveEngineDownDrop { z-index:20;display:block;opacity:0.9;};*/
+  
+  .moveEngineUpDrop:hover ,  .moveEngineDownDrop:hover {background-color:blue}
+/* default show */
+ .mainMoveable .moveEngineUpDrop,  .mainMoveable .moveEngineDownDrop {display:block;z-index:20;opacity:.9;-webkit-transition: opacity 0.7s}
+ /*.mainMoveable*/ .moveEngineUpDrop{margin-left:-20px;border-top-left-radius: 40px 20px;border-bottom-left-radius: 40px 20px;}
+ /*.mainMoveable */ .moveEngineDownDrop{margin-left:200px;border-top-right-radius: 40px 20px;border-bottom-right-radius: 40px 20px;}
+ 
+ .canGroupDrop{display:none}
+ .groupable .canGroupDrop{display:block;width:185px;z-index:20;margin-left:10px;opacity:.9;-webkit-transition: opacity 0.7s}
+
+  
+    	
+    </style>
+    <script src="js/engine.js" type="text/javascript"></script>
+    <script src="js/engineGroup.js" type="text/javascript"></script>
+    <script>
+        var backgroundPage = chrome.extension.getBackgroundPage();;
+        var engines = backgroundPage.engines;
+       // var editEngine;
+        var currentDragElement;
+        
+        Element.prototype.addClass = function(value) { this.className = this.className + " " + value };
+
+        //can we make this private
+        function load() {
+
+            //set debug mode
+            if (backgroundPage.settings.debugMode) {
+                //todo if body already has a class name it will be over written
+                //http://stackoverflow.com/questions/195951/change-an-elements-css-class-with-javascript
+                document.body.className = "";
+            }
+
+
+            var trash = document.getElementById("trash");
+        
+            
+            trash.addEventListener("dragover", function(event) {
+            //event.dataTransfer.dropEffect = "copy";
+            //event.dataTransfer.dropEffect = "move";
+                //log(event);
+                event.preventDefault();
+                return false;
+            }, false);
+
+            trash.addEventListener("dragenter", function(event) {
+                //trash.style.backgroundColor = "#B5C7DE";
+                // alert(event.dataTransfer.getData("text/plain"));
+                log("event data");
+                //log(event.dataTransfer.getData("text/plain"));
+            }, false);
+            trash.addEventListener("dragleave", function(event) {
+                //trash.style.backgroundColor = "";
+             }, false);
+             trash.addEventListener("drop", function(event) {
+              
+                 log(event.dataTransfer.getData("text/plain"));
+                 //  alert(event.dataTransfer.getData("text/plain"));
+                 log(event.dataTransfer);
+
+                 // event.dataTransfer.setData("text/plain", "Delete");
+                 //log(event.dataTransfer.getData("text/plain"));
+                 log("dropEnd");
+                 if (currentDragElement.engine) {
+                     //alert("engine");
+                     engines.deleteEnginesById(currentDragElement.engine.Id);
+                     currentDragElement.parentNode.removeChild(currentDragElement);
+                     log("deleted engine");
+                     showUserMessage("engine deleted");
+                 }
+                 if (currentDragElement.engineGroup) {
+                     engines.deleteEnginesById(currentDragElement.engineGroup.Id);
+                     currentDragElement.parentNode.removeChild(currentDragElement);
+                     log("deleted engineGroup");
+                     showUserMessage("engine Group deleted");
+                 }
+                 event.preventDefault();
+                 //since the dragend event wron't fire if it's deleted
+                 //document.body.className = "";
+                 trash.style.backgroundColor = "";
+
+
+             }, false);
+
+             var addEngineButton = document.getElementById("addEngineButtton");
+             addEngineButton.addEventListener("click", engineDialogManager(), false);
+
+            var addGroup = document.getElementById("addGroupButton");
+
+            addGroup.addEventListener("click", function(event) {
+                showGroupEngineDialog()();
+//////                var engGroup = new engineGroup();
+//////                engGroup.name = "Group";
+//////                engGroup.IconUrl = chrome.extension.getURL("/images/folder.png");
+//////                engGroup.Id = engine.CreateId(); //todo move CreateId somewhere... inheritance?
+//////                engines.addEngine(engGroup);
+//////                // redrawEngines();
+            }, false);
+
+
+
+          var groupPopup =  document.getElementById("engineGroupEdit");
+
+          groupPopup.addEventListener("dragover", function(event) {
+              event.stopPropagation(); event.preventDefault();
+          }, false);
+          groupPopup.addEventListener("drop", function(event) {
+              log(event);
+          }, false);
+
+
+//            group.addEventListener("dragover", function(event) {
+//                event.preventDefault();
+//             },false);
+//            group.addEventListener("drop", function(event) {
+//
+             //             }, false);
+
+
+            loadEngines();
+            showUserMessage("tip: Click an engine or engine group to edit it");
+            document.getElementById("bottomMenu").className = "bottomMenuContainer bottomMenuContainerShow"
+     
+        }
+
+
+        //*************** public methods ****************//
+        function drawEngine(item) {
+            var engineDom = document.getElementById("engineElements");
+            drawItem(engineDom, item);
+        }
+        
+ 
+
+//        function deleteEngine(sender,searchId) {
+//            engines.deleteEnginesById(searchId);
+//            sender.parentNode.parentNode.removeChild(sender.parentNode);
+//            showUserMessage("Website deleted");
+//        }
+
+//        function moveEngine(sender, searchId,direction) {
+//            if (engines.moveEngine(searchId, direction)) {
+//                redrawEngines();
+//             }
+//         }
+
+
+         function redrawEngines() {
+             //refresh engine list
+             var engineDom = document.getElementById("engineElements");
+
+             //removes engine html
+             //todo make into prototype remove childnodes
+             while (engineDom.hasChildNodes()) {
+                 engineDom.removeChild(engineDom.childNodes[0]);
+             }
+             loadEngines();
+         }
+
+        function loadEngines() {
+            
+            var engineDom = document.getElementById("engineElements");
+            engines.forEach(function(item) { drawItem(engineDom, item); });
+ 
+        }
+
+        function drawItem(engineDom,item) {
+            if (item.Engines) {//todo need a better way to tell if it's an engine/enginegroup
+                engineDom.appendChild(displayEngineGroup(item));
+            }
+            else {
+                engineDom.appendChild(displayEngine(item));
+            }
+        
+        }
+
+
+    function displayEngineGroup(engGroup)
+    {
+        var li = document.createElement("li");
+        li.setAttribute("draggable", "true");
+        //li.addClass("engineDraggable");
+       // li.addClass("engineGroup");
+
+        li.addEventListener("click", showGroupEngineDialog(engGroup), false);
+        li.engineGroup = engGroup; //do we have to set this here? can we get rid of it?
+
+
+        li.addEventListener("dragstart", function(event) {
+            log(event);
+            currentDragElement = this;
+            log("gdrag");
+            log(currentDragElement);
+            //event.dataTransfer.effectAllowed = "copy";
+           
+            document.body.addClass("trashable");
+            document.body.addClass("mainMoveable");
+            
+        }, false);
+
+
+        li.addEventListener("dragend", function(event) {
+            ResetDragAnimation();
+        }, false);
+
+
+            
+            var copyEngineDropDiv = document.createElement("div");
+
+            copyEngineDropDiv.className = "copyEngineDrop";
+            copyEngineDropDiv.addClass("canGroupDrop");
+
+            copyEngineDropDiv.addEventListener("drop", function(event) {
+
+                //not a fan of using currentDragElement, but it's the only thing that seams to work
+                log("engines");
+                log(engines);
+                engines.copyEngineToGroup(currentDragElement.engine, li.engineGroup);
+                //li.engineGroup.CopyNewEngine();
+                currentDragElement = null;
+                redrawEngines();
+                ResetDragAnimation();
+
+            }, false);
+            copyEngineDropDiv.addEventListener("dragover", function(event) {
+                //make into actual function
+                 event.target.style.backgroundColor = "#B5C7DE";
+                event.dataTransfer.dropEffect = "move";
+                //event.dataTransfer.dropEffect = "copy";
+                event.preventDefault();
+
+            }, true);
+            copyEngineDropDiv.addEventListener("dragleave", function(event) {
+                event.target.style.backgroundColor = "";
+            }, false);
+
+            
+
+
+      
+            li.appendChild(CreateMoveArea("moveEngineUpDrop", engGroup, moveAbove));
+            li.appendChild(CreateMoveArea("moveEngineDownDrop", engGroup, moveBelow));
+            li.appendChild(copyEngineDropDiv);
+        var engineGroupDiv = document.createElement("span");
+        engineGroupDiv.setAttribute("class", "searchEngineBubble");
+        var img = document.createElement("img");
+        img.setAttribute("src", engGroup.IconUrl);
+        engineGroupDiv.appendChild(img);
+        engineGroupDiv.appendChild(document.createTextNode(engGroup.name));
+        li.appendChild(engineGroupDiv);
+
+
+
+
+
+
+        engGroup.Engines.forEach(function(engine) {
+            //var eImg = document.createElement("img");
+            //eImg.setAttribute("src", engine.IconUrl);
+            var eImg = document.createElement("img");
+            eImg.className = "EngineImageButton";
+            //eImg.engine = engine;
+            //eImg.width = 16;
+            eImg.setAttribute("title", engine.SearchEngineName);
+            eImg.setAttribute("alt", engine.SearchEngineName);
+            eImg.setAttribute("draggable", "true");
+
+           // eImg.addEventListener("click", showEditEngine(engine), false);
+
+            eImg.addEventListener("click", engineDialogManager(engine), false);
+            eImg.engine = engine;
+            eImg.addEventListener("dragstart", function(event) {
+                currentDragElement = this;
+                event.cancelBubble = true;
+
+                document.body.addClass("trashable");
+                document.body.addClass("groupable");
+
+
+            }, false);
+            eImg.addEventListener("dragend", function(event) {
+                currentDragElement = null;
+                ResetDragAnimation();
+
+            }, false);
+
+            eImg.src = engine.IconUrl;
+            li.appendChild(eImg);
+           
+
+        });
+      
+     
+      
+     
+      return li;
+    }
+
+
+    function CreateMoveArea(className, item, moveNav) {
+        var moveUpEngineDropDiv = document.createElement("div");
+        moveUpEngineDropDiv.className = className; //"moveEngineUpDrop";
+        moveUpEngineDropDiv.addClass("moveable");
+        moveUpEngineDropDiv.addEventListener("dragover", function(event) {
+        event.target.style.backgroundColor = "#B5C7DE";
+        event.dataTransfer.dropEffect = "move";
+         event.preventDefault(); }, false);
+
+         moveUpEngineDropDiv.addEventListener("dragleave", function(event) {
+             event.target.style.backgroundColor = "";
+         }, false);
+        
+        //must pass current engine to
+        moveUpEngineDropDiv.addEventListener("drop", moveNav(item), false);
+
+        return moveUpEngineDropDiv;
+    }
+
+
+    function moveAbove(targetItem) {
+        return function(event) {
+           // alert('aboce');
+            var item;
+
+            if (currentDragElement.engine) {
+                item = currentDragElement.engine;
+            } else {
+                item = currentDragElement.engineGroup;
+            }
+
+            engines.moveEngineBelow(item, targetItem);
+            currentDragElement = null;
+            redrawEngines();
+        }
+    }
+
+    function moveBelow(targetItem) {
+        return function(event) {
+
+
+            var item;
+
+            if (currentDragElement.engine) {
+                item = currentDragElement.engine;
+            } else {
+                item = currentDragElement.engineGroup;
+            }
+
+            engines.moveEngineAbove(item, targetItem);
+            currentDragElement = null;
+            redrawEngines();
+
+        }
+    }
+
+
+         function displayEngine(engine) {
+
+            var li = document.createElement("li");
+            li.engine = engine;
+            li.addEventListener("click",engineDialogManager(engine), false);
+
+            li.appendChild(CreateMoveArea("moveEngineUpDrop", engine, moveAbove));
+            li.appendChild(CreateMoveArea("moveEngineDownDrop", engine,moveBelow));
+            
+            var engineDiv = document.createElement("span");
+            engineDiv.setAttribute("class", "searchEngineBubble");
+            li.setAttribute("draggable", "true");
+
+            li.addEventListener("dragstart", function(event) {
+                currentDragElement = this;
+               // document.body.addClass("draggingEngine");
+               // document.body.addClass("draggingItem");
+                document.body.addClass("mainMoveable");
+                document.body.addClass("groupable");
+                document.body.addClass("trashable");
+
+            }, false);
+
+            li.addEventListener("dragend", function(event) {
+                currentDragElement = null;
+                ResetDragAnimation();
+            }, false);
+            
+            var img = document.createElement("img");
+            img.setAttribute("src", engine.IconUrl);
+            
+            var nameDiv = document.createElement("span");
+            nameDiv.appendChild(document.createTextNode(engine.SearchEngineName));
+
+            
+            li.appendChild(engineDiv);
+                engineDiv.appendChild(img);
+                engineDiv.appendChild(nameDiv);
+
+           
+           //todo delete this
+//            function moveTheEngine(engine,direction) {
+//                return function(event) {
+//                    
+//                    event.cancelBubble = true;
+//                      if (engines.moveEngine(engine.Id, direction)) {
+//                          redrawEngines();
+//                          showUserMessage("Engine moved");
+//                     }
+//                }
+//             }
+//           
+//            li.appendChild(createImageButton("images/download.png",moveTheEngine(engine,1)) );
+//            li.appendChild(createImageButton("images/up.png",moveTheEngine(engine,-1)) );
+            
+    
+            return li;
+
+        }
+
+
+        function createImageButton(src, clickAction) {
+            var ele = document.createElement("img");
+
+            ele.addEventListener("click", clickAction, false);
+            //ele.setAttribute("onclick", clickAction);
+            ele.src = src;
+            ele.setAttribute("class", "EngineImageButton");
+
+            return ele;
+        
+        }
+
+
+
+
+
+        function showAddEngineDialog() {
+            var element = document.getElementById('dialogBox');
+            element.style.display = "block";
+        }
+
+        function hideAddEngineDialog() {
+            var element = document.getElementById('dialogBox');
+            element.style.display = "none";
+        }
+
+        function hideDialog(id) {
+            var element = document.getElementById(id);
+            element.style.display = "none";
+        }
+
+        function showDialog(id) {
+            var element = document.getElementById(id);
+            element.style.display = "block";
+        
+        }
+        
+//maybe this isn't relivent anymore
+        function toggleDialog(elementName) {
+            var element = document.getElementById(elementName);
+            if (element.style.display == 'none') {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        
+        }
+
+
+
+
+        function engineDialogManager(engineValue) {
+            return function(event) {
+                showAddEngineDialog(); //should be show
+                if (engineValue) {
+                    document.getElementById('iconUrl').value = engineValue.IconUrl;
+                    document.getElementById('searchName').value = engineValue.SearchEngineName;
+                    document.getElementById('searchUrl').value = engineValue.SearchUrl;
+                    document.getElementById('addButton').innerText = "Update";
+                }
+                else {
+                    document.getElementById('iconUrl').value = "";
+                    document.getElementById('searchName').value = "";
+                    document.getElementById('searchUrl').value = "";
+                    document.getElementById('addButton').innerText = "Add";
+                }
+
+                event.cancelBubble = true;
+                saveEngine = function() {//should we move save out of  the click event..
+
+                    var iconUrl = document.getElementById('iconUrl').value;
+                    var searchEngineName = document.getElementById('searchName').value;
+                    var searchUrl = document.getElementById('searchUrl').value;
+
+                    if (engineValue) {
+                        engineValue.IconUrl = iconUrl;
+                        engineValue.SearchEngineName = searchEngineName;
+                        engineValue.SearchUrl = searchUrl;
+                        //??? are we doing this twice?
+                        engineValue.setParameters({ "SearchEngineName": searchEngineName, "IconUrl": iconUrl, "SearchUrl": searchUrl });
+                        showUserMessage("Website updated");
+                    }
+                    else {
+                        var newEngine = engine.CreateEngine(searchEngineName, iconUrl, searchUrl);
+
+                        engines.addEngine(newEngine);
+                        showUserMessage("Website added");
+                    }
+                    hideAddEngineDialog();
+                    redrawEngines();
+                    //alert("saving");
+                }
+            }
+        
+        }
+
+        function showGroupEngineDialog(engGroup) {
+            return function(event) {
+                toggleDialog("engineGroupEdit");
+                document.getElementById("engineGroupName").value = "";
+                document.getElementById("engineGroupIcon").value = chrome.extension.getURL("/images/folder.png");
+
+                if (engGroup) {
+                    document.getElementById("engineGroupName").value = engGroup.name;
+                    document.getElementById("engineGroupIcon").value = engGroup.IconUrl;
+                }
+                saveGroup = function() {//todo why does this need to be inside?
+                    //                var engGroup = new engineGroup();
+                    //                engGroup.name = "Group";
+                    //                engGroup.IconUrl = 
+                    //                engGroup.Id = engine.CreateId(); //todo move CreateId somewhere... inheritance?
+                    //                engines.addEngine(engGroup);
+                if (!engGroup) {
+                    engGroup = new engineGroup();
+                    engGroup.Id = engine.CreateId();
+                    engines.addEngine(engGroup); //shouldn't need to add & save, either or
+                    }
+
+                    engGroup.name = document.getElementById("engineGroupName").value;
+                    engGroup.IconUrl = document.getElementById("engineGroupIcon").value;
+
+
+                    engGroup.save();
+                    redrawEngines();
+                    toggleDialog("engineGroupEdit");
+                };
+
+            }
+        }
+
+ 
+        //todo should be reanamed to ResetEngineListclick (and all the rest)
+
+        function ResetEngineList() {
+
+             //repopulate
+             engines.reset();
+             redrawEngines();
+             showUserMessage("engine list reset");
+
+         }
+
+         function ExportEngineList() {
+
+             var eText = document.getElementById("engineText");
+             eText.value = engines.exportEngines();
+             toggleDialog("exportBox");
+
+             eText.select();
+             eText.focus();
+
+         }
+
+
+         function Import() {
+
+             var eText = document.getElementById("engineText");
+             var engJson = JSON.parse(eText.value);
+             engines.importJSONList(engJson);
+             // importJSONList
+             toggleDialog('exportBox');
+             redrawEngines();
+             showUserMessage("Engines imported");
+         }
+
+         function ClearImageCache() {
+             backgroundPage.ClearImageCache();
+             showUserMessage("Image cache cleared");
+         }
+
+         function showUserMessage(message) {
+             //add fade in transision
+             
+             document.getElementById("notifictionMessage").innerText = message;
+             document.getElementById("notificationBox").style.visibility = "visible";
+          }
+          function hideUserMessage() {
+              //TODO add fade out transistion
+              //if we have undo fade out wond work so well
+              document.getElementById("notificationBox").style.visibility = "hidden";
+          }
+
+
+
+          function ResetDragAnimation() {
+              //should really remove items
+             document.body.className = backgroundPage.settings.debugMode ? "" : "debugOff";
+               
+          
+          }
+
+          function log(message) {
+              console.log(message);
+              backgroundPage.log(message);
+          }
+    </script>
+ 
+</head>
+<body class="debugOff" onload="load()">
+
+
+
+
+
+<div id="searchBar" class="titleBar" >
+    <!--<span>Search Center</span>-->
+    <img src="images/process.png" width="24px" />
+    <span>Manage Engines</span>
+</div>
+<nav>
+    <ul>
+    
+        <li ><img src="images/process.png" width="18px" /><a href="options.html">Options</a></li>
+        <li>|</li>
+        <li><img src="images/light_bulb.png" width="18px" /><a href="manageEngines.html">Manage Engines</a></li>
+        <li>|</li>
+        <li ><img src="images/light_bulb.png" width="18px" /><a href="features.html">What's new</a></li>
+
+    <li class="debug">|</li>
+        <li class="debug"><img src="images/light_bulb.png" width="18px" /><a href="manageEngines.html">Manage Engines</a></li>
+        <li class="debug">|</li>
+        <li class="debug"><img src="images/light_bulb.png" width="18px" /><a href="debug.html">Debug</a></li>
+        
+    </ul>
+</nav>
+
+
+<div id="notificationBox" >
+    <div style="">
+
+
+        <div id="notifictionMessage">Your notifcation message here </div>
+        <img src="images/delete.png" style="width:20px;float:right;" onclick="hideUserMessage()" />
+
+        <div style="color:White;float:right">|</div>
+            </div>
+</div>
+
+
+  
+  
+
+
+    
+
+<div class="searchEngineList" style="">
+    <ul id="engineElements" style="padding-left:20px;" />
+
+
+</div>
+<!--<div style="clear:both" />-->
+ <div class="bottomMenuBuffer"  ></div>
+<div id="bottomMenu" class="bottomMenuContainer"> 
+    <div class="bottomMenu">
+    <div class="bottomMenuButton" id="addEngineButtton"  >
+        <img src="images/add.png" />
+        <div>Add Engine</div>
+    </div>
+        <div id="addGroupButton"  class="bottomMenuButton">
+
+    <img src="images/shopping_cart.png"   />
+        <div>
+        New Group
+    </div>
+    </div>
+    <div class="bottomMenuButton" onclick="showDialog('resetPrompt')" >
+        <img src="images/refresh.png" />
+        <div>Reset List</div>
+    </div>
+
+      <div class="bottomMenuButton"  onclick="ExportEngineList()">
+      <img src="images/send_mail.png"  />
+      <div>Export Engines
+      </div>
+      </div>
+    
+    
+
+
+    <div id="trash"  class="bottomMenuButton trashable " onclick="alert('drag an item over the trash can to delete')" >
+       <img src="images/trash.png" />
+    <div>Delete</div>
+     
+    </div>
+    </div>
+</div>
+   
+
+
+
+
+
+ 
+ 
+<div id="resetPrompt" style="display:none;" class="DialogBox" >
+<div class="DialogShadow"  onclick="hideDialog('resetPrompt')">
+<div class="AddEngineBox">
+Are you sure? this will remove any new engines!
+ <a  id="A4" type="button" class="Button" onclick="hideDialog('resetPrompt')" >Cancel</a>
+            <a id="a5" type="button" class="Button" onclick="ResetEngineList()" >Reset</a>     
+</div>
+</div>
+</div>
+
+
+<div id="dialogBox" class="DialogBox" style="display:none">
+    <div class="DialogShadow" onclick="hideAddEngineDialog()"></div>
+    
+    <div class="AddEngineBox">
+        <div class="EngineLine">
+        
+            <span>Name </span>
+            <input id="searchName" type="text" class="TextBox" />
+        </div>
+        <div class="EngineLine" >
+            <span>Icon Url</span>
+            <input id="iconUrl" class="TextBox" type="text" />
+            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br /> e.g http://en.wikipedia.org/favicon.ico</div>
+        </div>
+        <div style="clear:both" ></div>
+        <div class="EngineLine">
+            <span>Search Url</span>
+            <input id="searchUrl" class="TextBox" type="text" />
+            <ul style="float:right;width:350px;list-style-type:decimal" >
+                <li style="padding-bottom:20px;">Go to the search engine you want to add as a search engine option and do a search for <q>searchcenter</q>.</li>
+                <li>Copy and paste the URL of the search results page into the "Search Url" field above. For example, while you'd go to http://www.google.com to access Google, the URL you'll add here is from the search results page, http://www.google.com/search?q=searchcenter .</li>
+            </ul>
+
+           
+        </div>
+        <div class="EngineLine clear" >
+            <a  id="Button3" type="button" class="Button" onclick="hideAddEngineDialog()" >Cancel</a>
+            <a id="addButton" type="button" class="Button" onclick="saveEngine()" >Add</a>
+            
+        </div>
+    </div>
+ </div>
+ 
+ 
+ 
+<div id="engineGroupEdit" class="DialogBox" style="display:none">
+    <div class="DialogShadow" onclick="toggleDialog('engineGroupEdit')"></div>
+    
+    <div class="AddEngineBox">
+        <div class="EngineLine">
+        
+            <span>Name </span>
+            <input id="engineGroupName" type="text" class="TextBox" />
+        </div>
+        <div class="EngineLine" >
+            <span>Icon Url</span>
+            <input id="engineGroupIcon" class="TextBox" type="text" />
+            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br /> e.g http://en.wikipedia.org/favicon.ico</div>
+        </div>
+        <div style="clear:both" ></div>
+       
+        <div class="EngineLine clear" >
+            <a  id="A3" type="button" class="Button" onclick="toggleDialog('engineGroupEdit')" >Cancel</a>
+            <a id="engineGroupSaveButton" type="button" class="Button" onclick="saveGroup()" >Save</a>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+  
+<div id="exportBox" class="DialogBox" style="display:none" >
+    <div class="DialogShadow" onclick="toggleDialog('exportBox')"></div>
+    
+    <div class="AddEngineBox" >
+        <div >
+            <span>Copy this text into a file, and import it later.</span>
+            <!--<div class="Button Right">?</div>-->
+            <textarea id="engineText" style="width:100%" rows="10"></textarea>
+            
+        </div>
+
+        <div >
+            <span>Warning, this feature may break between versions</span>
+        </div>
+        <div class="EngineLine clear" >
+            <a  id="A1" type="button" class="Button" onclick="toggleDialog('exportBox')" >Cancel</a>
+            <a id="a2" type="button" class="Button" onclick="Import()" >Import</a>
+        </div>
+    </div>
+     
+ </div>
+ 
+
+
+</body>
+</html>

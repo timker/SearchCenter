@@ -1,0 +1,84 @@
+﻿
+@font-face {
+  /* Base */
+  font-family: "YetAnotherFontBase";
+  src: url("/fonts/cimatics-base-webfont.woff") format("woff");
+  font-weight:  400;
+  font-style:   normal;
+  font-variant: normal;
+  font-stretch: normal;
+}
+
+
+        /* should rename to heading and change to H1*/
+      body
+      {
+        font-family:Lucida Sans, Calibri, YetAnotherFontBase;
+      }
+      
+      
+    
+        .titleBar
+        {
+            background-repeat: no-repeat;
+            background-position: right;
+            background-image: url(/images/spinWorld.png);
+            background-color: #EBEFF9; /*#F0F0F0;*/
+            border: 1px solid #B5C7DE;
+            -webkit-border-radius: 3px; /*/0 0 10px 10px;*/
+           /* padding: 5px;*/
+           padding-left:10px;
+            margin-left:auto;
+            margin-right:auto;
+            /*width: 550px;*/
+            overflow:hidden;
+            margin-bottom:7px;
+            padding-bottom:3px;
+            padding-top:2px;
+            width:50%;
+        }
+    
+        .titleBar > span
+        {
+        	float:left;
+        	padding-top:4px;
+        	padding-left:4px;
+        	font-family:Lucida Sans;
+        	font-weight:bolder;
+        	font-size:13pt;
+        	font-variant: small-caps; 
+        	
+        }
+        .titleBar img
+        {
+        	float:left;
+        }
+        
+
+      
+      
+      nav
+      {
+      	margin-left:auto;
+      	margin-right:auto;
+      	display:block;
+     /* 	background-color:Red;*/
+      	clear:both;
+      }
+      
+      nav ul
+      {
+      	list-style-type:none;
+      	padding:0px;
+      	text-align:center;
+      	margin:0px;
+      }
+      
+      nav ul li
+      {
+      	display:inline;
+      	margin-left:5px;
+      	margin-right:5px;
+      	font-variant: small-caps;
+      }
+      

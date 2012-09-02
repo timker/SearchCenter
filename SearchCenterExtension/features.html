@@ -1,0 +1,579 @@
+﻿<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+      <link href="css/common.css" rel="stylesheet" type="text/css" />
+      <style>
+
+      
+    
+ 
+     
+    body
+    {
+    
+    	} 
+      
+      h3
+      {
+      
+      clear:left;
+      padding-top:10px;
+      padding-bottom:10px;
+      margin:0px;	
+      	}
+      
+      dl
+      {
+
+      /*	width:100%;
+      	margin:auto;*/
+      	/*background-color:Red;*/
+      /*	border-color:Green;
+      	border-style:solid;
+      	border-width:3px;*/
+      	margin:0px;
+      	padding:0px;
+      	overflow:hidden;
+      	}
+
+
+  /*    dt
+      {
+      	background:url(/images/light_bulb.png) no-repeat;
+        background-size:20px;
+      	float:left;
+      	clear:left;
+      	width:30%;    
+      	margin-left:10px;
+      	padding-top:3px;
+      	padding-left:23px;
+      	vertical-align:middle;
+      }*/
+      	
+
+
+  	    .new dt 
+  	    {
+  		    background:url(/images/new.png) no-repeat; 
+  	    }
+
+
+dt.twitter
+{
+		    background:url(http://twitter-badges.s3.amazonaws.com/t_small-a.png) no-repeat; 
+  	
+	}
+
+
+
+
+ /*    dd
+      {
+      		padding-left:10px;
+      		margin-left:35%;
+      		opacity: 0;
+      		height:0px;
+      }
+   */   
+     p 
+     {
+     	padding-bottom:20px;
+     	margin-bottom:20px;
+     	}
+
+/*.expander:hover dt
+{
+	background-color:Green;
+	}
+	
+	.fadeAway
+	{
+	background-color:Orange;
+		
+		}
+	
+	.expander:hover dd
+{
+display:block;
+-webkit-transition: all .3s ;
+
+-webkit-transform: rotate(0deg) scale(1.0);
+height:auto;
+
+	}
+*/	
+	
+	
+	/*dt:hover
+	{
+		font-weight:bolder;*/
+/*background:url(/images/light_bulb.png) no-repeat;*/ 
+/*background-color:Blue*/ /******************** add a gradient in here, or a small blue pulse   **************/
+	/*}*/
+	
+	dt:hover+*,dd:hover 
+	{
+		opacity: 1;
+        -webkit-transition: opacity .5s linear;
+		display:block;
+		/******************************************* text-indent:30px;*/
+	/*	-webkit-transition: all .2s ;*/
+/*-webkit-transition:all .4s ease-in-out;
+-webkit-transform: rotate(0deg) scale(1.0);
+		-webkit-transform-origin:top top;*/
+ /* -webkit-transition: height 0.5s;
+  	background-color:Blue;
+  	font-size:15px;
+  	margin-left:0px;*/
+}
+
+	
+	
+ul
+{
+	margin: 0px ;
+}
+p
+{
+	margin:0px 0px 0px 10px;
+}
+
+      
+     
+      </style>
+      <script>
+
+          var bgPage = chrome.extension.getBackgroundPage();
+
+          function load() {
+              document.getElementById("installed").innerText = "Installed:" + bgPage.version.installedAt + " Updated:" + bgPage.version.updatedAt;
+
+              //getElementsByClassName
+
+//              var allParas = document.getElementsByTagName("p");
+//              console.log(allParas);
+//              for (var index in allParas) {
+//                  console.log(allParas[index]);
+//                  
+//                  allParas[index].addEventListener('click', function() { alert('tggle') }, false);
+              
+           //   }
+//foreach 
+//              var num = allParas.length;
+
+//              alert("There are " + num + " <p> elements in this document"); 
+          
+          }
+
+      </script>
+</head>
+<body onload="load()">
+
+<div  class="titleBar" >
+    <!--<span>Search Center</span>-->
+    <img src="images/light_bulb.png" width="24px" />
+    <span>Features</span>
+    
+</div>
+<nav >
+    <ul>
+        <li ><img src="images/process.png" width="18px" /><a href="options.html">Options</a></li>
+        <li>|</li>
+        <li><img src="images/light_bulb.png" width="18px" /><a href="manageEngines.html">Manage Engines</a></li>
+        <li>|</li>
+        <li ><img src="images/light_bulb.png" width="18px" /><a href="features.html">What's new</a></li>
+
+    </ul>
+</nav>
+  
+
+<div>
+<dl class="new" style="overflow:visible">
+<dt>What's New</dt>
+<dd>
+<p>
+3.7
+Popup now has a search this site button, probably need a little bit more polish, but hey it's christmas.
+</p>
+<p>3.6
+Added Search bar toggle & close button. Removed right click pin (now just opens behind straight away).  
+</p>
+<p>3.5
+Search bar has now customisable hot key (in options). Suggestions now are less invasive. 
+</p>
+<p>3.4
+Context menu is finally here. Drag to reorder engines. </p>
+<p>3.3
+Group engines is much more polished this version. Manage engine's page is also a lot more consistant. Popup styling has been updated with a new look.
+</p>
+<p>
+3.2
+    In the new Manage Engines page, you can create engine groups. Just click the New Group button and drag existing engines into a group.
+</p>
+<p>
+3.1 Lots of little improvements in this release.
+       Big shout out to J Schildgen for the first ever donation! I spent that several times over, on several rounds of beer :)
+       Added tab search, also made it possible to disable the search bar, mainly for users that have Ctrl+Q also is their @ key.
+   </p>    
+       
+      <p> 3.0 Wow 3.0! This release took a little longer than usual. Among other things, the world cup pretty much dominated my usual search center time.</p>
+</dd>
+<dt>ChangeLog</dt>
+
+<dd>
+3.7
+<ul>
+<li>Popup: Search current site button added</li>
+<li>Searchbar: Show and hide aninamtion</li>
+<li>Searchbar: toggling repopulates the searchbar with the selected text</li>
+<li>Options: added Contact links</li>
+</ul>
+3.6
+<ul>
+<li>Searchbar: added Close button</li>
+<li>Searchbar:Fixed double engineList bug</li>
+<li>Searchbar: added toggle</li>
+<li>Context Menu: Can disable context menu in options</li>
+<li>Popup:Pin engines feature removed</li>
+<li>Popup:options animation removed, due to chrome bug in dev</li>
+</ul>
+3.5
+<ul>
+<li>Options:Customise hotkey</li>
+<li>Popup:Suggest list will hide after a mouse click</li>
+<li>Popup:Clicking anywhere will hide suggestions</li>
+<li>Options: Added Twitter Link</li>
+</ul>
+3.4
+<ul>
+<li>new: Context menu</li>
+<li>Manage Engines: Drag to reorder engines</li>
+<li>Manage Engines: Reset Engine list now has a confirmation</li>
+<li>Manage Engines: Group engines now will display their name on hover</li>
+<li>popup: "add current website" displays better with lots of engines</li>
+
+</ul>
+
+3.3
+<ul>
+<li>Manage Engines:Can rename Group Engines</li>
+<li>Manage Engines:Can edit engines with single click</li>
+<li>Manage Engines:Removed edit & delete buttons from engines</li>
+<li>Manage Engines:A groups engine behave more like standalone engines:drag to delete,click to edit</li>
+<li>Manage Engines:Bottom menu bar no longer hides large engine list</li>
+<li>Popup:Search current site works again (shift+enter)</li>
+<li>Popup:Update styling (comments welcome)</li>
+<li>Options:added descriptions</li>
+</ul>
+
+3.2.0
+<ul>
+<li>
+Engine Groups
+</li>
+</ul>
+3.1.0
+<ul>
+<li>
+tab search</li><li>
+disable search bar
+</li>
+</ul>
+3.0.0
+<ul>
+<li>
+Ctrl + Q will bring up a search bar</li><li>
+Added a donate button
+</li>
+</ul>
+2.9.0
+<ul>
+<li>
+right click to "Pin" engines for multi-search</li><li>
+Embedded fonts for consistant display (hopefully)</li><li>
+right click search box will show And hide history
+</li>
+</ul>
+Update 2.8.0
+<ul>
+<li>
+Suggestions work a little faster</li><li>
+Suggestions can be disabled</li><li>
+Small icons can be enabled
+</li>
+</ul>
+Update 2.7.0
+<ul>
+<li>
+Import/Export engines from the options menu</li><li>
+right click search box for history
+</li>
+</ul>
+Update 2.6.0
+<ul>
+<li>
+Typing brings up Suggestions
+</li>
+</ul>
+Update 2.5.0
+<ul>
+<li>
+scroll through you previous searches (mousewheel, up and down arrows)</li><li>
+can set the default engine to the last engine used
+</li>
+</ul>
+
+Update 2.4.0
+<ul>
+<li>
+edit website details in options page</li><li>
+default search site is now the first site in the list</li><li>
+default search button now respoinds to right click
+</li>
+</ul>
+
+Update 2.3.0
+<ul>
+<li>
+Right click website will not close the popup (multi-search)
+</li>
+</ul>
+
+Update 2.2.0
+<ul>
+<li>
+Quick key searches e.g a default search for "food /w" will search wikipedia for food</li><li>
+Twitter is a standard engine
+</li>
+</ul>
+
+Update 2.1.0
+<ul>
+<li>
+can now reorder engines</li><li>
+default search on a selected Url will open that Url directly</li><li>
+new features page
+</li>
+</ul>
+
+Update 2.0.0
+<ul>
+<li>
+will remember searches from the address bar (if the the website matches search center's websites)
+</li>
+</ul>
+
+Update 1.9.0
+<ul>
+<li>
+Shift+enter will search the current site (in popup)</li><li>
+Support for mycroft.mozdev.org definitions
+</li>
+</ul>
+
+Update 1.8.0
+<ul>
+<li>
+Ability to train websites</li><li>
+Image cache speeds up loading,  (Thanks PAEz!) 
+</li>
+</ul>
+Update 1.7.0
+<ul>
+<li>
+Ability to automatically add some websites
+</li>
+</ul>
+Update 1.6.0
+
+
+<ul>
+<li>
+New default interface: middle click opens new tab,left clicks opens in same tab.(Thanks PAEz!). Can be changed in options. </li><li>
+Fixed cross domain selection bug
+</li>
+</ul>
+Update 1.5.0
+<ul>
+<li> 
+Open search in same tab (set in options menu)</li><li>
+Fixed popup flicker (Thanks PAEz!)</li><li>
+Selecting text now works with iframes (gmail messages)
+</li>
+</ul>
+Update 1.4.1
+<ul>
+<li>
+Fixed google address bar search to work with other google country domains (google.co.uk)
+</li>
+</ul>
+Update 1.4.0
+<ul>
+<li>
+Now remembers google searches from the address bar</li><li>
+Remembers standard google searches
+</li>
+</ul>
+Update 1.3.0
+<ul>
+<li>
+added default search (enter will search google)</li><li>
+added default search button to the title bar</li><li>
+selected text inside a frame now works</li><li>
+search now escapes special characters
+</li>
+</ul>
+Update 1.2.0
+<ul>
+<li>
+Manually add search engines from the options page</li><li>
+Ebay is now a default engine</li><li>
+Updated button animations
+</li>
+</ul>
+Update 1.1.1
+<ul>
+<li>
+Fixed selected text bug
+</li>
+</ul>
+Update 1.1.0
+<ul>
+<li>
+Any selected text on the current page will default to the search text  
+</li>
+</ul>
+
+</dd>
+
+
+
+
+
+
+    </dl>
+</div>
+
+
+<h3 style="display:none" >Previous Features & updates:</h3>
+<dl style="display:none" >
+    <dt>Manage Engines</dt>
+    <dd>You can Drag engines into the trash to delete them</dd>
+    <dt>SearchBar</dt>
+    <dd>Fixed page reloading & double pages bugs (thanks for the info luke)</dd>
+    <dt>Popup</dt>
+    <dd>tab search can now be used from the popup</dd>
+    <dt>tab search</dt>
+    <dd>If you prefix a default search with ?, search center will scan your open tabs and bring that tab to the front, e.g: ?gmail</dd>
+    <dt>Search bar</dt>
+    <dd>
+        <ul>
+            <li>middle clicking an engine no longer brings up the scroll cursor</li>
+            <li>right click an engine no longer brings up the context menu</li>
+            <li>will display correctly on more websites</li>
+            <li>can disable search bar in options</li>
+            <li>engines have hover titles</li>
+         </ul>
+     </dd>
+    <dt>Search Bar</dt>
+    <dd><p>Ctrl + q will bring up a search bar. You will need to reload any existing pages to see this work.</p>
+        <p>Autoseach (enter), left and middle click are implemented, I'll be adding features and bringing more of the pop up features over the next several releases.</p>
+        <p>The search bar doesn't render correctly on many sites, but it's at a point where it's worth releasing</p>
+    </dd>
+    <dt>Donate</dt>
+    <dd>
+        <p>You can now donate from the options page!</p> 
+        <p>If you choose to donate some cash (highly recommended), I will <del>probably</del> definately buy a nice cold beer or two :)</p>
+    </dd>
+    <dt>Pin engines</dt>
+    <dd>right click will now pin an engine, left or middle click with run the search on all the pinned engines & the selected engine</dd>
+    <dt>Small Icons</dt>
+    <dd>enable small engines in options</dd>
+    <dt>Suggestions</dt>
+    <dd><ul><li>Suggestions shouldn't break or slow the UI with a bad network connection</li>
+    <li>Suggestions can disabled in options</li></ul></dd>
+    <dt>History</dt>
+    <dd>Right clicking the search box will bring up this sessions search history</dd>
+    <dt>Export</dt>
+    <dd>Copy or save your search engines by exporting them from the options page</dd>
+    <dt>Suggestions</dt>
+    <dd>Typing now brings up suggestions</dd>
+    <dt class="twitter"><a href="http://www.twitter.com/AngryTurtleLtd">Follow on Twitter!</a></dt>
+    <dd>Follow my projects on twitter, give suggestions and be notified of updates and new projects</dd>
+    <dt>Search history</dt>
+    <dd>Use the up & down arrows and mouse wheel to scroll through previous searches. No longer remembers the last search between chrome sessions (complete close of all browser windows)</dd>
+    <dt>Set default search to previous site</dt>
+    <dd>In options, you can set the default engine to be the last one you used</dd>
+    <dt>Edit Engines</dt>
+    <dd>You can edit an websites details by going to the <a href="options.html">options</a>  page and clicking the <img src="images/edit.png" width="20" /> edit icon </dd>
+    <dt>Custom default search</dt>
+    <dd>The default search will be the first website in the list, change the order in the options</dd>
+    <dt>Right click multi-search</dt>
+    <dd>Right clicking an engine will not close the popup; so you can search multiple engines at once</dd>
+    <dt>Shortcut keys</dt>
+    <dd>Typing / followed the the first letter of the domain will open the search page for the engine eg "food <b>/w</b>" will search for "food" in wikipedia. You can add more switch to do a multisearch eg /w /i will search wikipedia & imdb.</dd>
+    <dt>New Version notifcation</dt>
+    <dd>Search Center popup will nofity you when a new version is installed, so you can learn & start using the enhancements straight away.</dd>
+    <dt>Reorder website list</dt>
+    <dd>from the options page you can change the order the the websites are displayed but click the arrow buttons.</dd>
+    <dt>Directly open a url</dt>
+    <dd>If you select and url and do a default search (enter or clicking the icon to the left of the text box). Instead of running a search, search center will navigate directly the url.</dd>
+
+
+    <dt>Search for selected text</dt>
+    <dd>When you select text on the page Search Center will automatically fill its input with the selected text</dd>
+    <dt>Remember address bar searches</dt>
+    <dd>If you do a google search from the address bar, search center will remember that search. If you do a tabbed search from the address bar Search Center will remember the search if it is in it's list of engines,</dd>
+    <dt>Middle Click</dt>
+    <dd>If you click on a search engine with the middle mouse button it will be opened in a new tab. This behaviour is customisable in the options page.</dd>
+    <dt>Open Search</dt>
+    <dd>Open Search data is sometimes included in a page that has a search box. If you go to one of these sites and click the Add Current Site the search engine will be added.</dd>
+    <dt>Site Learning</dt>
+    <dd>If you use searchcenter as your search term at a search site and then click the Add Current Site (after doing the search), Search Center will see this and add the search engine to its list.</dd>
+    <dt>Manual Add</dt>
+    <dd>Manually add websites from the options menu, by entering the name, icon location and search Url.</dd>
+
+    <dt>MyCroft Support</dt>
+    <dd>Go to <a  href="http://mycroft.mozdev.org">mycroft</a> and do a search or click on the Top 100. After the page has loaded enough any search engines that support OpenSearch will have a Search Center icon next to them. Clicking on this icon will add that search engine to Search Center.
+    </dd>
+
+    <dt>Current Site Search</dt>
+    <dd>Pressing Shift+Enter in the Search Center popup will cause Search Center to do a google search of the site (in the selected tab) for the terms in the input box.</dd>
+
+    <dt>Icon Cacheing</dt>
+    <dd>Icons displayed in Search Center are cached on the users computer so that Search Center doesnt have to get them everytime Chrome is started. This make the extension alot more responsive, especially for dialup users.</dd>
+
+</dl>
+
+
+
+
+
+    
+
+<dl class="new"><dt>Resources:</dt>
+<dd>
+<ul>
+<li>Main icon from <a href="http://commons.wikimedia.org/wiki/File:Gartoon-Galeon.png">wikimedia.org</a>.</li>
+<li>Ajax loader from <a href="http://commons.wikimedia.org/wiki/File:Cursor_Windows_Vista.gif">wikimedia.org</a>.</li>
+<li>luna blue icons from <a href="http://dryicons.com/free-icons/icons-list/luna-blue-icons/">dryicons</a>.</li>
+<li>YetAnotherFont from <a href="http://openfontlibrary.org/">http://openfontlibrary.org/</a> conveted to .woff <a href="http://www.fontsquirrel.com/fontface/generator">font converter</a></li>
+</dd>
+</ul>
+</dl>
+
+<dl class="new"><dt >About:</dt>
+<dd >
+
+<ul>
+<li>Search Center has been developed by Tim Ker (Angry Turtle ltd).</li>
+<li>Thanks to PAEz for contributing loads of code.</li>
+<li><p id="installed" /></li>
+</ul>
+</dd>
+</dl>
+</body>
+</html>
+

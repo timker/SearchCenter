@@ -1,0 +1,1033 @@
+
+3.x
+Find on Page, like ctrl+F
+
+create proj file
+done start useing root svn location
+
+done check in todo
+
+
+remember to remove on key up
+possible bug with inserting hotkey code 
+
+3.6
+remove pin feature
+middle middle click opens in front, right click opens behind, remeber to get it to work correct with groups
+close searchbar
+click item with empty search go straig to domain
+reduce left right padding on poup
+fix ben bug
+go directly to site on empty search
+
+
+drag engines has a animation 
+
+focus new group name text box
+
+look into memory leaks... test, test wwith empty popup, maybe create new engine objects to display
+
+add wave to options
+
+
+add twitter, ggroups, wave, installlocation to options
+disable context menu
+
+3.5
+done.... CLICK suggestion hides suggestions
+
+
+done... add twitter
+
+done....searchbar shortcut customisation
+
+
+
+
+can i make a function
+
+function x(input,arg1,arg2,arg3)
+return input()
+
+
+
+User sugggestions
+wave: searach bar close  button
+wave: change shortcut
+wave: fix more engines in
+wave: copy and paste with the mouse
+wave:post support
+
+
+3.4
+done... context menu
+*promote the google groups
+done... remove opensourch info
+*way better text for training engines, many a video
+*search bar toggle
+bug:the display engine being called on options
+
+done... add google groups
+
+user requests
+manage engines move
+change short cut
+
+cool ideas
+mouse over small engine and search bar displays name somewhrer
+
+bugish
+displays with lots of engines
+search bar styling
+*almoset done :add engine display with lots of engines
+
+3.4
+small icon
+icons
+DONE refreash list when engines get updated
+done  get groups to work
+test the add current website, seam to be doing a weird page refresh, also does it expand down?
+add video
+faq how do i add search engines, how can i search,how can i donate
+find free sceen capture software
+post on chrome about security permissions
+about ccs extension id
+
+3.5
+search bar hide
+search bar shortcuts
+search bar current site icon
+search bar options icon
+search bar styling
+search bar site specific styling fix
+search bar mouse over display name
+
+
+pop up long text
+pop up small icons display name (where new features go)
+pop up make "can't add engine" display better when there are more engines
+pop up right click displays the current paste text
+pop up clicking anywhere in the extention hides suggestions
+pop up make pop wider when there are more than X number of engines
+
+general: add post search engine
+general: add mozilla "mycorft" inergration
+general: add ie accelerators intergration
+general: add context menu
+
+release page: add search centre text to description
+release page: add updated icons
+
+mycroft feedback/port mycroft add
+mycroft insert search bar in results page
+mycroft insert "how to add"/"what to click" in seach page
+
+
+features: split into blog/change log/ features
+
+manage engines: add drag styling
+manage engines: add drag move
+manage engines: fix styling for dialog (fixed)
+manage engines: add tips
+
+manage engines: add change mouse over cursors
+
+
+manage engines: change orange tips color
+manage engines: export to file (chrome 7/8)
+manage engines: click new group and name text is focused
+code: work on prototypre addClass
+
+3.4 possibles
+fix at least one bug in buggzilla
+context menu
+
+manage engine drag styles
+do some user requests
+
+
+
+
+(manage engine drag engine into group bug
+manage engine groupd bug)
+manage engine +group should bring up engine dialog
+done... manage engine cliking an engine in a group should bring up the engine options
+done... popup search current site
+done... popup background for small icons
+done... popup suggestion is underneath
+done... popup small icon right click moves engines underneath
+
+done... manage engine currently the up/down arrows don't work
+done... manage engine remove edit and delete buttons
+
+manage engines: drag a enging group egine onto add engine button creates a new engine 
+
+popup make it wider if you have lots of engines
+popup over flow on long names
+manage engine dialogs are not very good absolute or fixed...
+done... manage engine drage group engine egine in dlete should work (& save)
+
+manage engine left and right spaces of the bottom search bar are unclickable
+manage engine  mouse over engine should change cursor
+
+manage engine mouseover alt/title for delete (drag n drop an item over to delete it)
+manage engine fix styling on dialog
+manage engine that orange for the tips is pretty harsh 
+manage engine drag enginegroup engine into trash
+manage engine better dragging styles (highlight droppable areas)
+
+manange engien highlight delte icon on engien enginegroup enginegroupengine 
+
+ORGANISE THE FUNCTIONS BETTER
+
+
+add search centre to the discription for search ability 
+tip: drag and drop an engine/group over the trash icon to delete
+think: dragging is a bit bad due to it always shows 
+
+popup can't add website info is sometimes hidden
+
+manage engines add more messages when you add a group/delete etc
+
+done.... popup click action
+done?... popup fix left right bottom boarder spacing
+popup right click should not pin
+done.... popup active click
+popup remove suggestwhen clicking space in popup
+popup small icons auto show name somewhere... maybe where new features go?
+
+search bar... look into toggle, lookinto custom buttons, look into suggest
+
+options beef it up
+
+pop search site should work again
+
+
+look at splitting up common into standard and standard page
+
+
+How about left click opens in same window
+and you click again opens in new window
+if you drag mouse out of the window it rolls up and and dissapperars
+
+
+
+
+Hocloud storage API
+BookMarkStorage : Cloud
+
+.add
+.remove[key]
+
+make it similar to local storage
+
+
+divides into size
+adds the extensionID
+
+search current site is broken
+
+
+http://www.html5rocks.com/
+popup engine replacement
+
+
+3.3
+edit group name
+fix bottom menu getting in the way
+
+just do the edit name first... clean and then experiment a bit with image
+
+tips for manage engines
+beef up description test for options
+improve dragand drop
+remove the draw engine from the notify 
+
+edit group image
+edit group items
+delete group items
+add fade to dialog boxes
+added shadow to bottom menu
+look into move  items display
+addclass
+removeClass
+start tiding features
+add the gap to the engine list (for bottom menu)
+
+done... tidy
+done... remove group items image links
+done... remove/change hover background color
+done... fix popup group name draw
+done...   update menus
+done... popup right click double search bug
+
+
+
+done... grourp drag into another group dataTransfer.dropEffect
+done... bug +group dage engien, reset
+done... pop left click should close popup, left click will always close popup
+
+check possible load bug try to get Id instead of ID
+
+done...middle click sucks in searchbar, 
+also left with new may be shit
+
+done..  options: remove more crap
+done.. popup get tab search working
+done.. searchbar, fix open in same window bug
+tabsearch fix the bring window to front bug 
+add features
+done...  bug pop not resetting of the list of item to search multi search etc, when the popup is not closed
+
+3.x group enhancements
+edit name
+edit image
+edit group engines
+delete drag area background color
+
+
+pop enhancements:
+left click on new window should focus it not go behind
+
+instead of creating the hotkey code send the file but add the query string ?hotkey=asldk
+
+start unhanding events as it's probably a memory leak
+
+restype popup and genral enigne display
+
+message about html5 drag and drop sucks so hard
+//no refence to element
+//different event so can't use closures
+//.. when an element is deleted it doesn't fire the correct event
+//the drag over works per element
+
+REfactor
+unbind events
+make anon function concrete
+just clean up a pages logs
+
+
+fix invalid property in common.js (cause it could be our version of chromium as it's a new tab)
+fix getdaomin bug
+clean options
+fix Name for group in popup, prolly alt in search bar
+
+3.x
+add tips
+e.g drag to delete
+
+
+remember the padding for the manage engine bottom bar (for lots of engines/small screen)
+
+3.2
+group engines basic
+?tab search in popup
+drag to delete
+tidy menu bottom for manage engines
+options page
+toggle search bar
+use nice fonts
+
+3.3
+
+clean colors form search bar
+animate toggle search bar
+bottom menu bar buttons need a lot of states
+canclick/can't click/can drag in/can drop(hover)/clicked/dropped/
+
+
+
+is url
+is cuts
+is quick
+
+
+
+                                   /*close button*/
+#promo-close, .promo-close {
+  display: inline-block;
+  border: 0px;
+  margin-left: 10px;
+  margin-right: auto;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background: no-repeat;
+  /*pcpjghbmicbhiijipppojfljcndjefkg*/
+  background-image:url('chrome-extension://__MSG_@@extension_id__/images/close_bar.png');
+}
+ body {
+  background-image:url('chrome-extension://__MSG_@@extension_id__/images/close_bar.png');
+}
+#promo-close:hover,
+#promo-close:focus {
+  background-image: url(chrome://theme/close_bar_h);
+}
+ 
+#promo-close:active {
+  background-image: url(chrome://theme/close_bar_p);
+}
+
+
+
+3.1.0
+fix middle click... done
+options page
+look into iframes for infobar... fail
+trash
+fix some search bar styling... done
+right click searchbar... done
+make donate textbetter
+
+reply to twitter... done
+reply to se...done
+alt-text for engines ... done
+
+3.0.0
+change font
+make cabbri default & yetanother second done
+
+
+3.1.0
+update features page
+more quick search features
+find tab
+more quick search features
+
+
+3.2.0
+update mycroft a bit
+smart search (no /t just t and no gmail always check)
+fix right click on search box (look into lyric wiki)
+
+3.3
+siteKeys (works with find tab)
+
+
+?gmail of pop deafualt doesn't work
+
+move enlink list into own page
+create special engines css
+twitter & wave
+
+left click shows history plus adds the paste to the list
+
+empty search terms engine click goes to domain
+
+start doing one thing for me
+one thing for users
+one for mycroft
+one for options
+one for engines
+one for fetures
+make features have a blurb each time, or connect to a blog..
+
+Obsolete Engines
+
+EngineList
+-engines[]
+
+EngineManager
+-getpopupEngines
+-getOrignalEngines
+-getInfoEngines
+-findItems
+-FindEngines
+
+
+
+
+add features formatting
+add a features menu bar
+
+angry turtle
+37 47 79 5 9 12 (83)
+
+
+footer style
+
+             (----------)
+-------------|add failed|
+|blah blasdf            |  
+|                       |
+|                       |
+|                       |
+(------------------------)
+
+
+upgrade notifcation orange colour to be gradient
+upgrade nav rollovers, maybe gradient/ highlighting
+
+
+
+
+
+
+
+
+
+screen capture software
+
+
+http://books.google.com/books?id=za3vlnlWxb0C&pg=PT44&lpg=PT44&dq=javascript+duck+typing&source=bl&ots=MCaDIUsRHC&sig=cqN6trrBcKnkCrkWjJdJy7QjHCo&hl=en&ei=Q2J4S9r5IYfCsgODxLC8Cw&sa=X&oi=book_result&ct=result&resnum=9&ved=0CCEQ6AEwCDgK#v=onepage&q=javascript%20duck%20typing&f=false
+
+
+http://commons.wikimedia.org/wiki/Category:Nuvola_icons
+http://commons.wikimedia.org/wiki/Gartoon_icons
+http://commons.wikimedia.org/wiki/Category:Silk_icons
+
+http://dryicons.com/free-icons/icons-list/luna-blue-icons/
+
+
+look into vertical tab and see how it finds out the extensions or new  tab is open
+
+nofify is awesome has works left
+ ducktyping bassed
+ background & options
+  can i do something like get options page 
+ singleton()
+ pass in filename
+ 
+
+image cache has work left
+ singleton
+ last accessed
+ renew
+ last  clean date, timer once a month
+
+think about a default button bar under the text box (an old idea)
+see if we can do some cool stuff with translate, 
+
+how about a find tab ext... so if you have a hidden facebook page it will load it for you
+dl movie hot rod
+
+
+rotate the options icon when mouse over
+
+http://commons.wikimedia.org/wiki/Category:Bluesphere_SVG_icons
+
+
+
+
+idea from extension web develper, resize to different resolution
+
+
+check how long a popup stays round for()eg fire an event which the popup subscribes to and it adds one to a pgpage 
+
+could be hardcore and raise an event that will be fired from the backround page, and the options page could pick it up.. if possible
+options button in popup
+make "image cache cleared be a message box up the top" like remeber password or the popup tips
+can you pass the options page variables(e.g the current websites favicon)
+options page makeover
+upgrade cache to web sql database
+some sort of const key thing at the tope of a file or an include
+
+make training work for boing boing
+delete cache images once a month
+bug add gmail doesn't come back with an error... just throbs
+add cache date?
+clear cache button behaviour
+how to convert to an assoicate array,
+create guid
+
+
+image cache could do the reset on background load? or options page load
+scan the last used
+a function called clean
+
+
+
+mycroft link could include a link to seach the current domain (as well as a direct link)
+could use the star icon in <li>'s
+
+
+some light gradients in the pop background... horz or vertical
+
+
+choose default search/last search engine/current site
+options link
+
+flex you description features inoption and wave
+double click edit?
+
+bug: try to add a homepage should capture  
+font text/ message background
+icons for website added/error/ addwebsite/info
+look at the chrome upload throbber
+
+train search use the paez favicon link (and open if not included) 
+research google analytics
+
+improve logging messages
+the overrun of text
+
+
+
+add fade in and outs to notifactions
+jax mince freezer
+
+I want to extend my stay
+
+
+
+
+updates features in popup (not what's new) (not that great an idea, may just a new version popup)
+
+/? facebook could search all tab for face book
+either highlight or move into own window
+
+make a consistant grouping of in a page's js, public, private, event handlers,etc
+dan,   monday 10:00am
+2pm, 
+assement day?
+2hours
+face to face
+asp => asp.net
+£300
+
+
+2pm, 
+
+
+callum recurit 360
+
+cv mentor
+doing sun, air dist
+
+
+User Requests:
+(chinese wave)Context menu
+(wave)Fix Fonts
+!(Paez )last engine used
+(wani wave)shorcut key
+(petra) grouped engine
+(kili) smaller
+
+
+http://www.ieaddons.com/gb/
+context menu
+
+
+2.7
+google buzz
+
+make the suggestest respond to middle click and right click
+added export to file
+add installed at date,upgraded date fixed position at bottom
+
+2.6
+!suggestion
+ http://en.wikipedia.org/w/api.php?action=opensearch&search=mon&namespace=0
+ ["mon",["Montreal","Monocotyledon","Montane","Montana","Mongolia","Montreal Canadiens","Monastery","Montenegro","Monaco","Monotypic taxon"]]
+
+
+
+localstorage bug
+add's date installed
+show enginedata to copy
+
+make engines.getdomian use common get domain
+
+simple shortcuts
+/? face
+empty go straight to domain
+
+add toolyips to everything
+  !defaukt search button
+  engines in options..
+
+start Manage Engines.html
+start engineManager.js
+
+look into twitter retweet
+update screen shot
+
+2.5
+
+->inherit from enginebase
+
+!scroll wheel history
+
+!select last engine used
+
+->direct mycroft search link
+
+->change all fonts... maybe embed
+
+better mycroft reactions, plus make it more obvious  on the site that it supports it
+
+
+remove duplicates from search history (only side by side dup) one,one,three,one == one,three,one.... should also enhace to it works for selection sel:one hist one three one, if got the same as current go back one... wathc out for loop
+
+does enter on URL close after?
+
+remove some comments
+remove some todo's
+
+
+add remove to image cache
+add last updated to image cache
+
+
+shift enter shouldn't bug on newtab? what to do instead some error!
+
+
+
+
+fix fonts 
+
+open url, need a test page
+/create test page so i can work offline
+
+find the actual scope of backgound funtions... or prototypes
+
+
+http://1.bp.blogspot.com/_DYiINe6IoY4/S5k8_VNQ-nI/AAAAAAAAAVc/mLnd88oDjGo/s1600-h/3.png
+
+***************** Fix the same tab new tab issue starting from the background page ****************************8
+!test with engines
+test with default
+	!shourtcut
+	!normal
+	direct url
+test with keyboard
+	enter
+		!cuts
+		!normal
+		direct Url
+	shift enter (n/c)
+		!on site with engine
+		!on site without engine
+searchcurrentsite (not really changed)	
+******************this is now half done
+#888888888888888 remove comments
+
+
+2.3
+
+
+shortcut key ctrl + Q to show search box
+
+!right click keeps button open
+
+
+
+options: make left click checkbox a radiobutton
+
+
+
+
+
+2.2
+
+
+community: search engine list
+
+also add to sc desvription for more hits
+	s)better for trackpads, make it a radiobutton
+
+
+bug adding protected pages
+	name sure you have a list of testing add then
+
+
+add more icon to options page
+add padding to options notify
+
+
+
+
+
+
+make the website add failed mycroft auto populate the search for the domain
+
+simple add just i instead of /i add in options
+
+2.1
+
+
+
+*nofication of new version 
+      top of pop up
+      rex cross to hide
+      make it look nice
+      just says new version click here for feature list
+
+
+
+2.0
+
+update the wording quick search
+
+
+
+look into jslint
+*********problems with engine layout******
+
+
+there is definately an issue where the searchurl could be malformed eg null and then we can't delete it; need to move away from this as the primary key
+
+lower case the engine object properties
+
+could put opensearch xml address in the engine property, would need a local address for default engines, what should we do with trained/manual engines 
+
+needs a unique guid to store ID: something like func getguid(){make up one, is it in use? return}
+
+******************************************
+
+
+could make the throbber display in canvas and rotate
+
+
+some sort of update box to notify when new versions go live
+an error report send to me, should also collect the console .log
+
+search this site:either uses open query or a google search to search the current domian
+
+move popup js code into it's own file
+
+tips bar to help with the learning
+
+1.7 
+
+update search engine list
+
+ask for search engines
+
+
+ondblclick="alert('double')"  for edit engines
+
+possible betA OPTIONS AREA E.G FAVICONS
+
+
+for address bar searches we could use document.refferer.... if thats in html
+
+new default behaviour change: middle click opens new tab, left click reloads current tab (changable in options)
+get selectiong ignores cross domain security errors 
+
+"make descriptions better"
+
+iframes in wave?
+
+
+tag & 1.7
+ask followers for input.
+do checkbox label thing
+
+
+
+
+How expenisve is a javascript exeception
+The current implementation of inject script is pretty crazy with all-frames seam inconsistant
+is it true that it work for iframes that are of different domians? if so it should be labeled that way in the documentation
+
+
+should i turn the enginelist to an associtve arry? http://ekrantz.com/index.php/2007/06/06/json-and-associative-arrays.html
+
+
+check out herald with other iframe domians
+Add updateUrl to engine logic
+add local update Urls to default urls
+/make assicaiate arry work properly
+test with failed styles
+add links and remove training info 
+
+
+bug trying to add current website on  newtab 
+
+feature list
+chrome://favicon/http://www.red.com/
+experimental.popup
+
+
+add website needs an icon
+
+improve links to extension(wave/goog code/dictionary)
+
+make tags html 5ved
+
+why does address bar food hit twice but food hits just once
+
+
+move away from search engines.. to searching sites eg amazon imdb ebay
+Added angry turtle Ltd to all descriptions
+
+popup:
+gradient for title text
+add link to options page
+clean up code
+update manifest descriptions
+trim selected words
+fix selected trying to access new tab on get selected text on homepage
+
+options:
+a blank default icon if none is entered
+fix manual add view (shaded view)
+reset text boxes on add clcik
+add validators for manual add
+auto select text field on add clcik
+grey out whole page... not just screen
+
+1.5
+hotkeys (can put on popup first )
+
+1.6
+shortcut key (this may reqire experimantal popup)
+  make it look like ctrl + f, ctrl + space or ctrl + Q
+
+
+
+1.9
+more history
+
+2.0
+google suggest
+
+2.1 
+three column layout
+
+
+
+2.4
+right click paste
+
+2.5
+right click context menu
+
+2.6
+add pin for seperate page
+
+2.7
+modify engines
+
+2.8
+make a video
+
+2.9
+scroll wheel history
+
+3.0
+change default search
+
+3.1
+search: if home page is open overwrite it, rather than new tab
+
+3.2
+can you listen for cntl and c for copying
+
+
+3.4
+set default engine/last engine/current site
+
+3.5
+simple search codes keys... eg /w for wikipedia (this could actually to in the text eg avatar /i /p will search imdb & piratebay)
+
+3.6
+right click is multi search
+
+3.7 search hot keys(not bring up browser action)
+ctrl + w will search wikipeida
+
+3.8 hot which open the seach engine list in anew page?
+
+3.9
+it you select a url default will open it (maybe even open email on a email address??)
+
+4.0
+open links with mycroft addOpenSearch('videosyoutube','ico','','30963','p')
+needs to notify user that engine has been added
+if the click it switched to throber, on done shows some other icon 
+
+4.1
+add a /w to the end or start will search wikipida
+
+4.2
+add auto copy option, that either copy any selected text, or copyied text in the popup
+
+4.3
+add an internal mycroft api to search for egines
+
+4.4
+search with last engine used/change engine/google/current site
+
+4.5 make it simplier to calc the favicon
+
+4.6 undo for delete engine
+
+4.7 keywords, e.g gmail searches for gmail tab, and if no find opens gmail.com
+
+4.8 empty search plus engine click opens domain
+
+4.9 engine feed (like rss), when load the page, grabs engine feeds whihc can have engines & engines lists,lots to think about this
+how does do you upload (google docs?), is it readonly?, what happens when you delete engines, a readonly list may be easiest
+
+
+look into attaching objects to elements http://www.robertnyman.com/javascript/javascript-getters-setters.html
+
+use three column layout
+
+for things like check boxes can we set up some sort of bind?
+
+
+do we even need to store last search what is the point!?
+
+make more consistant with default home page (view source)
+
+on blank seach goes straight to the domain
+
+draggable options
+double click edit
+
+how about a extensionthat converts time to you current location
+
+pressing the up arrow cycles through history
+
+shortcut Key to bring up browser action
+
+google suggest
+
+multiple opens
+
+learn about queryselectorAll , get elements by css selector
+
+improve orange to a gradient
+
+three column
+can you paste?
+google suggest (plus look into open query) plus more history
+the first three are always history and the next three can be suggest 
+[last]
+[search]
+[completed]
+current text or selected text
+[sggestion 1 if exists]
+[suggestion2 if exists]
+[suggestion4 if exists]]
+
+
+something that makes debugging easier
+could log plus generate html so we don't need to go to the backgound page all the time
+
+create engine managment page
+
+
+restart the todo
+
+rename //todo to //enhance //bugg 
+
+
+*radio button for defult/last/select engine 
+then a drop down for the selected engine
+
+*hot keys /w
+lazy load the first key... we don't need to set defualts yet
+
+*shortcut key, shows a small text box
+small text box only nothing else... to tide over until popup comes into play 
+esc kills
+enter
+enter + shidft
+hotkeys
+basically jeyboaard only
+ctrl plus Q
+lost focus deletes

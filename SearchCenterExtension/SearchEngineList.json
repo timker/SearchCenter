@@ -1,0 +1,47 @@
+﻿[
+{ "SearchEngineName": "Google",
+                            "IconUrl": "http://google.com/favicon.ico",
+                            "SearchUrl": "http://www.google.com/search?sourceid=chrome&ie=UTF-8&q=searchcenter",
+                            "updateUrl":"/xml/openSearch/www.google.com.xml",
+                            "suggestUrl":"http://clients1.google.com/complete/search?client=chrome&hl=en-GB&q={searchTerms}"
+},
+{ "SearchEngineName": "Wikipedia",
+                            "IconUrl": "http://en.wikipedia.org/favicon.ico",
+                            "SearchUrl": "http://en.wikipedia.org/w/index.php?title=Special:Search&search=searchcenter",
+							"updateUrl":"/xml/openSearch/en.wikipedia.org.xml"
+},
+{ "SearchEngineName": "Dictionary",
+                            "IconUrl": "http://google.com/favicon.ico",
+                            "SearchUrl": "http://www.google.com/dictionary?langpair=en|en&q=searchcenter&hl=en&aq=f",
+                            "updateUrl":"/xml/openSearch/dictionary.google.com.xml"
+},
+{ "SearchEngineName": "imdb",
+                            "IconUrl": "http://i.imdb.com/favicon.ico",
+                            "SearchUrl": "http://www.imdb.com/find?s=all&q=searchcenter",
+                            "updateUrl":"/xml/openSearch/www.imdb.com.xml"
+},
+{ "SearchEngineName": "Amazon",
+                            "IconUrl": "http://www.amazon.com/favicon.ico",
+                            "SearchUrl": "http://www.amazon.com/s/ref=nb_ss?url=search-alias%3Daps&field-keywords=searchcenter&x=0&y=0",
+                            "updateUrl":"/xml/openSearch/www.amazon.com.xml"
+},
+{ "SearchEngineName": "Thesaurus",
+                            "IconUrl": "http://cache.lexico.com/g/t/favicon.ico",
+                            "SearchUrl": "http://thesaurus.reference.com/browse/searchcenter",
+                            "updateUrl":"/xml/openSearch/www.thesaurus.com.xml"
+},
+{ "SearchEngineName": "eBay",
+                            "IconUrl": "http://www.ebay.com/favicon.ico",
+                            "SearchUrl": "http://shop.ebay.com/?_from=R40&_trksid=p3907.m38.l1313&_nkw=searchcenter&_sacat=See-All-Categories",
+                            "updateUrl":"/xml/openSearch/www.ebay.com.xml"
+},
+{ "SearchEngineName": "Twitter",
+                            "IconUrl": "http://twitter.com/favicon.ico",
+                            "SearchUrl": "http://twitter.com/search?q=searchcenter",
+                            "updateUrl":"/xml/openSearch/www.twitter.com.xml"
+}
+
+]
+
+
+

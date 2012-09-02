@@ -1,0 +1,240 @@
+﻿        .clear
+        {
+        	clear:both;
+        	}
+        
+         .searchEngineList
+        {
+        	padding-top:0px;
+        	margin-bottom:30px;
+        	padding-bottom:30px;
+        }
+        .searchEngineList ul
+        {
+        	margin-top:14px;
+        	padding-bottom:10px;
+        	margin-bottom:30px;
+            -webkit-padding-start: 0px;
+            list-style-type: none;
+            
+        }
+      
+         .searchEngineList ul li
+         {
+         	/*width:300px;*/
+         	/*display:block;*/
+         	/*margin: 0px 0 0 0;*/
+         	-webkit-border-radius: 8px;
+         	margin-right:30px;
+         	margin-bottom:20px;
+         	background-color:#F2F2F2;
+         	padding:5px;
+         	float:left;
+         	}
+        
+         
+        
+        
+        .searchEngineBubble
+        {
+            background-color: #FDFDF7;
+            border-color: #E5E6E0;
+            border-width: thick;
+            border: 2px solid #E5E6E0; /*width:auto;*/
+            width: 200px;
+            /*display:inline-block;*/
+            -webkit-border-radius: 8px;
+            padding: 5px;
+            /* margin: 5px;*/
+			float :left;   
+        }
+        
+      /*  .searchEngineBubble:hover
+        {
+            background-color: #FAFAF0;
+            cursor: pointer; 
+            -webkit-transform: rotate(0deg) scale(1.03);
+            -webkit-box-shadow: 2px 2px 2px rgba(0,0, 0, 0.4);
+        }*/
+        
+        .searchEngineBubble img
+        {
+            /*display:none;*/
+            vertical-align: text-top; /*coud be a better fit*/
+            margin-right: 10px;
+            width:16px;
+            padding-top:2px;
+            padding-left:3px;
+            
+        }
+        .searchEngineBubble span
+        {
+            color: Black;
+            font-family: Calibri,YetAnotherFontBase; /*Arial;*/
+            overflow: visible;
+        }
+        
+        
+
+
+
+
+
+
+
+
+
+
+  /* Standard Styles */
+    Right
+	{
+		float:right;
+	}
+	Left
+	{
+		float:left
+	}
+
+    /* Standard Button Style */
+    
+    .Button
+    {
+    	border-width:1px;
+    	border-color:Black;
+    	float:left;
+    	/*display:inline;*/
+    	/*background-color:Green;*/
+    	margin-bottom:4px;
+    	margin-left: 3px;
+    	margin-right:5px;
+    	/*font-family:font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;*/
+    	/*font-weight:bold;*/
+    	padding: 0px 3px 0px 3px;
+        border-style:solid;
+        font-family: Calibri,YetAnotherFontBase;
+    }
+
+	.Button:hover
+	{
+		cursor: pointer;
+		color:Gray;
+		background-color:#FAFAF0;
+	}
+
+    /* Add Engine Styles */
+
+    .AddEngineBox
+    {
+    	background-color:white;
+    	position:absolute;
+        left:50%;
+        top:50%;
+        z-index:10;
+        /*left:0px;
+        top:0px;*/
+        margin-left:-250px;
+        margin-top:-250px;
+        width:500px;
+		padding:10px;
+        /*z-index:10;*/
+        /*height:inherit;*/
+        /*height:150px;*/
+         -webkit-border-radius: 8px;
+    }
+    
+    .AddEngineBox .EngineLine
+    {
+    	padding: 10px 10px 10px 0;
+    	/*background-color:Green;*/
+    	/*width:330px;*/
+        margin:10px;
+        /* float:left;*/
+    }
+      
+    .AddEngineBox .EngineLine .TextBox
+    {
+    	float:right;
+        width:367px;
+    }
+    	
+	.AddEngineBox .Button
+	{
+		Float:right;
+	}
+
+   
+    .AddEngineBox .EngineLine span
+    {
+       /* background-color:Purple;*/
+    	width:80px;
+        /* display:inline;*/
+        float:left;
+    }
+    
+    .DialogShadow
+    {
+    	position:absolute;
+   	    width:100%;
+    	height:100%;
+    	z-index:5;
+    	background-color:Gray;
+        left:0%;
+        top:0%;
+        opacity: .9;
+    }
+    
+
+
+.EngineImageButton
+{
+	width:22px;
+	float:right;
+	margin-top:6px;
+	margin-left:5px;
+	
+	
+	-webkit-transform: rotate(0deg) scale(.80);
+	/*margin-right:5px;*/
+	}
+	
+	
+.EngineImageButton:hover
+{
+	cursor: pointer; 
+	/*width:22px;
+	margin-left:3px;
+	margin-top:5px;*/
+	-webkit-transform: rotate(0deg) scale(1.00);
+}
+
+/******************* user notifactioin *******************/
+
+#notificationBox 
+{
+	text-align:center;
+	margin-top:3px;
+	visibility:hidden;
+	}
+
+#notificationBox > div 
+{
+	background-color:Orange;
+	display:inline-block;
+	clear:both;
+	-webkit-border-radius: 8px;
+	text-align:center;
+	padding:3px 5px 3px 5px;
+	border-color:Black;
+	/*border-width:1px;
+	border-style:solid;*/
+	
+	
+	}
+
+#notificationBox > div > div
+{
+vertical-align:top;
+float:left;
+margin:1px 3px 0px 0px;
+
+}
