@@ -16,7 +16,7 @@
                             "updateUrl":"/xml/openSearch/dictionary.google.com.xml"
 },
 { "SearchEngineName": "imdb",
-                            "IconUrl": "http://i.imdb.com/favicon.ico",
+                            "IconUrl": "http://imdb.com/favicon.ico",
                             "SearchUrl": "http://www.imdb.com/find?s=all&q=searchcenter",
                             "updateUrl":"/xml/openSearch/www.imdb.com.xml"
 },
