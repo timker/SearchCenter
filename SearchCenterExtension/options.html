@@ -35,6 +35,20 @@
         	padding-top:3px;
             
         }
+        
+        .externalLink
+        {
+            text-decoration:none;
+        }
+        .externalLink span
+        {
+            vertical-align: top;margin-left: 5px;text-decoration:underline
+         }
+         
+        .externalLink img
+        {
+            width:24px
+            } 
     </style>
 
     <script src="js/engine.js" type="text/javascript"></script>
@@ -386,13 +400,25 @@
         </div>
         
        <div style="float: left; clear: left">
-            <a style="text-decoration:none" href="http://www.twitter.com/AngryTurtleLtd"><img src="http://twitter-badges.s3.amazonaws.com/t_small-a.png" /><span style="vertical-align: top;margin-left: 5px;text-decoration:underline">Follow AngryTurtle on Twitter</span></a>
+            <a class="externalLink" href="http://www.twitter.com/AngryTurtleLtd">
+                <img src="http://twitter-badges.s3.amazonaws.com/t_small-a.png" />
+                <span>Follow AngryTurtle on Twitter</span>
+            </a>
             ,
-             <a style="text-decoration:none" href="http://groups.google.com/group/angryturtle/topics"><img src="images/groupsIcon.png" width="24" /><span style="vertical-align: top;margin-left: 5px;text-decoration:underline">Ask questions on google Groups</span></a>
-           ,
-            <a style="text-decoration:none" href="https://wave.google.com/wave/#restored:wave:googlewave.com!w%252BBO2DwEQbA"><img width="32" src="images/wave-60_wshadow.gif" /><span style="vertical-align: top;margin-left: 5px;text-decoration:underline">Post on Wave</span></a>
+             <a class="externalLink" href="http://groups.google.com/group/angryturtle/topics">
+                <img src="images/groupsIcon.png" />
+                <span>Ask questions on google Groups</span>
+             </a>
             ,
-             <a style="text-decoration:none" href="https://chrome.google.com/extensions/detail/ndfplmdnbnefomnjiknbpejdceedhdmf"><img  img width="24"  src="images/extensions.png" /><span style="vertical-align: top;margin-left: 5px;text-decoration:underline">Comment on extension page</span></a>
+             <a class="externalLink" href="https://chrome.google.com/extensions/detail/ndfplmdnbnefomnjiknbpejdceedhdmf">
+                <img src="images/extensions.png" />
+                <span>Comment on extension page</span>
+             </a>
+            ,    
+            <a  class="externalLink" href="https://github.com/timker/SearchCenter">
+                <img src="https://github.com/favicon.png" />
+                <span>Search Center on GitHub</span>
+            </a>
            
             <div class="info">
                 For updates on Search Center & other projects</div>
