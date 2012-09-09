@@ -238,3 +238,49 @@ float:left;
 margin:1px 3px 0px 0px;
 
 }
+
+
+      /* .debug 
+    {
+    	display:none;
+    }*/.debugOff .debug
+        {
+            display: none;
+        }
+        /* .debugOn .debug
+    {
+    	display:block;
+    	}*/
+    	
+    	
+    	.optionList
+    	{
+    	padding-left: 20px; clear: both; float: left; display: inline
+    	}
+    	.optionList div
+        {
+            float: left;
+            clear: left;
+        }
+        .optionList div .info
+        {
+        	font-size:12px;
+        	padding-left:40px;
+        	padding-bottom:10px;
+        	padding-top:3px;
+            
+        }
+        
+        .externalLink
+        {
+            text-decoration:none;
+        }
+        .externalLink span
+        {
+            vertical-align: top;margin-left: 5px;text-decoration:underline
+         }
+         
+        .externalLink img
+        {
+            width:24px
+            } 
