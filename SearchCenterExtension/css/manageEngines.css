@@ -1,0 +1,99 @@
+﻿
+    
+    .debugOff .debug
+    {
+    	display:none;
+    }
+	
+	body
+	{
+		margin:0px;margin-top:8px;
+	}
+    	    
+
+/*.engineListContainer
+{
+	width:80%;
+	}
+	
+	.engineList
+	{
+		     overflow:hidden;
+     margin-left: auto;
+     margin-right: auto;
+     display: table; 
+		}
+*/
+.bottomMenuBuffer
+{
+	height:80px;
+	clear:both;
+	}
+
+.bottomMenuContainer{position:fixed;bottom:-89px;
+           width: 100%;
+}
+.bottomMenuContainerShow{
+         bottom:0px;  
+         -webkit-transition: bottom .3s
+}
+  .bottomMenu 
+  {
+     background-color:#EBEFF9;
+     border: 2px solid #B5C7DE;
+     border-bottom:0px; 
+     -webkit-border-top-left-radius:20px;
+     -webkit-border-top-right-radius:20px;
+     padding:10px;
+     overflow:hidden;
+     margin-left: auto;
+     margin-right: auto;
+     display: table; 
+  }
+            
+                    
+.bottomMenuButton { float:left;border-width:2px;border-style:solid;border-color:#EBEFF9;-webkit-border-radius:4px;padding:3px;margin-left:10px;margin-right:10px; -webkit-transition: background .5s ; }
+.bottomMenuButton:hover { background:#B5C7DE;cursor:pointer; -webkit-transition: background .1s ;}
+.bottomMenuButton:active { background:#FDFDF7; }
+.bottomMenuButton img { margin-left:auto;margin-right:auto;display: block; width:40px }
+
+
+/* dragging view for trash */
+/*.draggingItem .trash.engineDraggable*/ /* , .draggingEngine .trash.engineDraggable *//* { border-color:#B5C7DE;border-style:solid; cursor:pointer;-webkit-transition: background 0s }*/
+/*.draggingEngine .engineGroup.engineDraggable {border-color:Red;}*/
+
+
+/*Groupable*/
+
+/*trash button drag*/
+.trashable .trashable { border-color:#B5C7DE;border-style:solid; cursor:pointer;-webkit-transition: background 0s;-webkit-transition: border 0.3s }
+
+/*.moveable {display:none;}
+.mainMoveable*/ /*.moveable {position:absolute;display:block;background-color:Blue;width:20px;height:30px;float:left;z-index:999;}
+*/
+
+
+
+/*.dropZone{display:none;}  
+.mainMoveable  .dropZone,.groupable  .dropZone {display:block; border-color:Green;background-color:Green;position:absolute;z-index:999;height:30px;width:150px;}
+*/
+
+ 
+ /* move buttons */
+ /* default drop */ 
+  .moveEngineUpDrop ,  .moveEngineDownDrop, .canGroupDrop {border-color:#B5C7DE;border-width:1px;border-style:solid;position:absolute;margin:0;padding:0;background-color:#EBEFF9;height:27px;margin-top:2px;}
+/*default move*/
+  .moveEngineUpDrop ,  .moveEngineDownDrop { width:25px;opacity:0.0;}
+ /*   .moveEngineUpDrop ,  .moveEngineDownDrop { z-index:20;display:block;opacity:0.9;};*/
+  
+  .moveEngineUpDrop:hover ,  .moveEngineDownDrop:hover {background-color:blue}
+/* default show */
+ .mainMoveable .moveEngineUpDrop,  .mainMoveable .moveEngineDownDrop {display:block;z-index:20;opacity:.9;-webkit-transition: opacity 0.7s}
+ /*.mainMoveable*/ .moveEngineUpDrop{margin-left:-20px;border-top-left-radius: 40px 20px;border-bottom-left-radius: 40px 20px;}
+ /*.mainMoveable */ .moveEngineDownDrop{margin-left:200px;border-top-right-radius: 40px 20px;border-bottom-right-radius: 40px 20px;}
+ 
+ .canGroupDrop{display:none}
+ .groupable .canGroupDrop{display:block;width:185px;z-index:20;margin-left:10px;opacity:.9;-webkit-transition: opacity 0.7s}
+
+  
+    	
