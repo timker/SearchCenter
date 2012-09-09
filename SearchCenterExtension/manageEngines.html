@@ -2,188 +2,199 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Manage Engines</title>
-    <link href="css/common.css" rel="stylesheet" type="text/css" />
-    <link href="css/options.css" rel="stylesheet" type="text/css" />
-    <link href="css/manageEngines.css" rel="stylesheet" type="text/css" />
+    <link href="css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="css/options.css" rel="stylesheet" type="text/css"/>
+    <link href="css/manageEngines.css" rel="stylesheet" type="text/css"/>
     <script src="js/engine.js" type="text/javascript"></script>
     <script src="js/engineGroup.js" type="text/javascript"></script>
     <script src="js/manageEngines.js" type="text/javascript"></script>
 </head>
 <body class="debugOff" onload="load()">
 
-<div id="searchBar" class="titleBar" >
+<div id="searchBar" class="titleBar">
     <!--<span>Search Center</span>-->
-    <img src="images/process.png" width="24px" />
+    <img src="images/process.png" width="24px"/>
     <span>Manage Engines</span>
 </div>
 <nav>
     <ul>
-    
-        <li ><img src="images/process.png" width="18px" /><a href="options.html">Options</a></li>
-        <li>|</li>
-        <li><img src="images/light_bulb.png" width="18px" /><a href="manageEngines.html">Manage Engines</a></li>
-        <li>|</li>
-        <li ><img src="images/light_bulb.png" width="18px" /><a href="features.html">What's new</a></li>
 
-    <li class="debug">|</li>
-        <li class="debug"><img src="images/light_bulb.png" width="18px" /><a href="manageEngines.html">Manage Engines</a></li>
+        <li><img src="images/process.png" width="18px"/><a href="options.html">Options</a></li>
+        <li>|</li>
+        <li><img src="images/light_bulb.png" width="18px"/><a href="manageEngines.html">Manage Engines</a></li>
+        <li>|</li>
+        <li><img src="images/light_bulb.png" width="18px"/><a href="features.html">What's new</a></li>
+
         <li class="debug">|</li>
-        <li class="debug"><img src="images/light_bulb.png" width="18px" /><a href="debug.html">Debug</a></li>
-        
+        <li class="debug"><img src="images/light_bulb.png" width="18px"/><a href="manageEngines.html">Manage Engines</a>
+        </li>
+        <li class="debug">|</li>
+        <li class="debug"><img src="images/light_bulb.png" width="18px"/><a href="debug.html">Debug</a></li>
+
     </ul>
 </nav>
 
 
-<div id="notificationBox" >
+<div id="notificationBox">
     <div style="">
 
 
-        <div id="notifictionMessage">Your notifcation message here </div>
-        <img src="images/delete.png" style="width:20px;float:right;" onclick="hideUserMessage()" />
+        <div id="notifictionMessage">Your notifcation message here</div>
+        <img src="images/delete.png" style="width:20px;float:right;" onclick="hideUserMessage()"/>
 
         <div style="color:White;float:right">|</div>
-            </div>
+    </div>
 </div>
 
 
-    
-
 <div class="searchEngineList" style="">
-    <ul id="engineElements" style="padding-left:20px;" />
+    <ul id="engineElements" style="padding-left:20px;"/>
 
 
 </div>
 <!--<div style="clear:both" />-->
- <div class="bottomMenuBuffer"  ></div>
-<div id="bottomMenu" class="bottomMenuContainer"> 
+<div class="bottomMenuBuffer"></div>
+<div id="bottomMenu" class="bottomMenuContainer">
     <div class="bottomMenu">
-    <div class="bottomMenuButton" id="addEngineButtton"  >
-        <img src="images/add.png" />
-        <div>Add Engine</div>
-    </div>
-        <div id="addGroupButton"  class="bottomMenuButton">
+        <div class="bottomMenuButton" id="addEngineButtton">
+            <img src="images/add.png"/>
 
-    <img src="images/shopping_cart.png"   />
-        <div>
-        New Group
-    </div>
-    </div>
-    <div class="bottomMenuButton" onclick="showDialog('resetPrompt')" >
-        <img src="images/refresh.png" />
-        <div>Reset List</div>
-    </div>
+            <div>Add Engine</div>
+        </div>
+        <div id="addGroupButton" class="bottomMenuButton">
 
-      <div class="bottomMenuButton"  onclick="ExportEngineList()">
-      <img src="images/send_mail.png"  />
-      <div>Export Engines
-      </div>
-      </div>
-    
-    
+            <img src="images/shopping_cart.png"/>
+
+            <div>
+                New Group
+            </div>
+        </div>
+        <div class="bottomMenuButton" onclick="showDialog('resetPrompt')">
+            <img src="images/refresh.png"/>
+
+            <div>Reset List</div>
+        </div>
+
+        <div class="bottomMenuButton" onclick="ExportEngineList()">
+            <img src="images/send_mail.png"/>
+
+            <div>Export Engines
+            </div>
+        </div>
 
 
-    <div id="trash"  class="bottomMenuButton trashable " onclick="alert('drag an item over the trash can to delete')" >
-       <img src="images/trash.png" />
-    <div>Delete</div>
-     
-    </div>
+        <div id="trash" class="bottomMenuButton trashable "
+             onclick="alert('drag an item over the trash can to delete')">
+            <img src="images/trash.png"/>
+
+            <div>Delete</div>
+
+        </div>
     </div>
 </div>
-   
 
- 
- 
-<div id="resetPrompt" style="display:none;" class="DialogBox" >
-<div class="DialogShadow"  onclick="hideDialog('resetPrompt')">
-<div class="AddEngineBox">
-Are you sure? this will remove any new engines!
- <a  id="A4" type="button" class="Button" onclick="hideDialog('resetPrompt')" >Cancel</a>
-            <a id="a5" type="button" class="Button" onclick="ResetEngineList()" >Reset</a>     
-</div>
-</div>
+
+<div id="resetPrompt" style="display:none;" class="DialogBox">
+    <div class="DialogShadow" onclick="hideDialog('resetPrompt')">
+        <div class="AddEngineBox">
+            Are you sure? this will remove any new engines!
+            <a id="A4" type="button" class="Button" onclick="hideDialog('resetPrompt')">Cancel</a>
+            <a id="a5" type="button" class="Button" onclick="ResetEngineList()">Reset</a>
+        </div>
+    </div>
 </div>
 
 
 <div id="dialogBox" class="DialogBox" style="display:none">
     <div class="DialogShadow" onclick="hideAddEngineDialog()"></div>
-    
+
     <div class="AddEngineBox">
         <div class="EngineLine">
-        
+
             <span>Name </span>
-            <input id="searchName" type="text" class="TextBox" />
+            <input id="searchName" type="text" class="TextBox"/>
         </div>
-        <div class="EngineLine" >
+        <div class="EngineLine">
             <span>Icon Url</span>
-            <input id="iconUrl" class="TextBox" type="text" />
-            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br /> e.g http://en.wikipedia.org/favicon.ico</div>
+            <input id="iconUrl" class="TextBox" type="text"/>
+
+            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br/> e.g
+                http://en.wikipedia.org/favicon.ico
+            </div>
         </div>
-        <div style="clear:both" ></div>
+        <div style="clear:both"></div>
         <div class="EngineLine">
             <span>Search Url</span>
-            <input id="searchUrl" class="TextBox" type="text" />
-            <ul style="float:right;width:350px;list-style-type:decimal" >
-                <li style="padding-bottom:20px;">Go to the search engine you want to add as a search engine option and do a search for <q>searchcenter</q>.</li>
-                <li>Copy and paste the URL of the search results page into the "Search Url" field above. For example, while you'd go to http://www.google.com to access Google, the URL you'll add here is from the search results page, http://www.google.com/search?q=searchcenter .</li>
+            <input id="searchUrl" class="TextBox" type="text"/>
+            <ul style="float:right;width:350px;list-style-type:decimal">
+                <li style="padding-bottom:20px;">Go to the search engine you want to add as a search engine option and
+                    do a search for <q>searchcenter</q>.
+                </li>
+                <li>Copy and paste the URL of the search results page into the "Search Url" field above. For example,
+                    while you'd go to http://www.google.com to access Google, the URL you'll add here is from the search
+                    results page, http://www.google.com/search?q=searchcenter .
+                </li>
             </ul>
 
-           
+
         </div>
-        <div class="EngineLine clear" >
-            <a  id="Button3" type="button" class="Button" onclick="hideAddEngineDialog()" >Cancel</a>
-            <a id="addButton" type="button" class="Button" onclick="saveEngine()" >Add</a>
-            
+        <div class="EngineLine clear">
+            <a id="Button3" type="button" class="Button" onclick="hideAddEngineDialog()">Cancel</a>
+            <a id="addButton" type="button" class="Button" onclick="saveEngine()">Add</a>
+
         </div>
     </div>
- </div>
- 
- 
- 
+</div>
+
+
 <div id="engineGroupEdit" class="DialogBox" style="display:none">
     <div class="DialogShadow" onclick="toggleDialog('engineGroupEdit')"></div>
-    
+
     <div class="AddEngineBox">
         <div class="EngineLine">
-        
+
             <span>Name </span>
-            <input id="engineGroupName" type="text" class="TextBox" />
+            <input id="engineGroupName" type="text" class="TextBox"/>
         </div>
-        <div class="EngineLine" >
+        <div class="EngineLine">
             <span>Icon Url</span>
-            <input id="engineGroupIcon" class="TextBox" type="text" />
-            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br /> e.g http://en.wikipedia.org/favicon.ico</div>
+            <input id="engineGroupIcon" class="TextBox" type="text"/>
+
+            <div style="float:right;width:350px">Usually http://somedomain/favicon.ico <br/> e.g
+                http://en.wikipedia.org/favicon.ico
+            </div>
         </div>
-        <div style="clear:both" ></div>
-       
-        <div class="EngineLine clear" >
-            <a  id="A3" type="button" class="Button" onclick="toggleDialog('engineGroupEdit')" >Cancel</a>
-            <a id="engineGroupSaveButton" type="button" class="Button" onclick="saveGroup()" >Save</a>
+        <div style="clear:both"></div>
+
+        <div class="EngineLine clear">
+            <a id="A3" type="button" class="Button" onclick="toggleDialog('engineGroupEdit')">Cancel</a>
+            <a id="engineGroupSaveButton" type="button" class="Button" onclick="saveGroup()">Save</a>
         </div>
     </div>
- </div>
+</div>
 
-  
-<div id="exportBox" class="DialogBox" style="display:none" >
+
+<div id="exportBox" class="DialogBox" style="display:none">
     <div class="DialogShadow" onclick="toggleDialog('exportBox')"></div>
-    
-    <div class="AddEngineBox" >
-        <div >
+
+    <div class="AddEngineBox">
+        <div>
             <span>Copy this text into a file, and import it later.</span>
             <!--<div class="Button Right">?</div>-->
             <textarea id="engineText" style="width:100%" rows="10"></textarea>
-            
+
         </div>
 
-        <div >
+        <div>
             <span>Warning, this feature may break between versions</span>
         </div>
-        <div class="EngineLine clear" >
-            <a  id="A1" type="button" class="Button" onclick="toggleDialog('exportBox')" >Cancel</a>
-            <a id="a2" type="button" class="Button" onclick="Import()" >Import</a>
+        <div class="EngineLine clear">
+            <a id="A1" type="button" class="Button" onclick="toggleDialog('exportBox')">Cancel</a>
+            <a id="a2" type="button" class="Button" onclick="Import()">Import</a>
         </div>
     </div>
-     
- </div>
- 
+
+</div>
+
 </body>
 </html>

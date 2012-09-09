@@ -1,4 +1,7 @@
 ﻿
+
+document.addEventListener("DOMContentLoaded", LoadDefaults, false);
+
 //******** intial
 var bgPage = chrome.extension.getBackgroundPage();
 var engines = bgPage.engines;
