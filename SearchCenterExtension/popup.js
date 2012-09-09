@@ -16,11 +16,18 @@ function LoadDefaults() {
     var enginelistElement = document.getElementById("engineList");
     enginelistElement.className = bgPage.settings.smallButtons ? "searchEngineListBase smallEngineList" : "searchEngineListBase searchEngineList";
 
+
+
+
+
     displayEngines = new DisplayEngines("engineList");
     //  displayMulti = new DisplayEngines("multiList");
 
     var searchBox = document.getElementById("searchText");
     searchBox.focus();
+
+
+
 
     //wires up hotkey events
     // searchBox.addEventListener('keydown', function() {alert('ping') }, false);
@@ -239,12 +246,12 @@ function textBoxManager(useSuggest) {
             event.stopPropagation();
         }, false);
 
-
-
-        //var body = document.getElementById("body");
-        //body.addEventListener("mousedown", hideDropDown, false);
-        //body.addEventListener("click", hideDropDown, false);
-
+        // disable context menu
+        searchBox.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
 
         document.addEventListener('mousewheel', function (wheelEvent) {
             //should i prevent default?
