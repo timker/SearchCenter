@@ -60,15 +60,16 @@ function LoadDefaults() {
     //rename to newFeatures or displaynewfeatures
     initFeatures();
 
-
     document.body.addEventListener("mouseup", function () { searchText.hideDropDown(); }, false);
 
     document.getElementById("optionsLink").addEventListener("click", showOptionsPage, false);
+    document.getElementById("linkOptions").addEventListener("click", showOptionsPage, false);
     //todo only one link gets shown
     document.getElementById("newFeaturesTop").addEventListener("click", viewFeaturePage, false);
     document.getElementById("featuresLink").addEventListener("click", viewFeaturePage, false);
     document.getElementById("hideFeaturesLink").addEventListener("click", hideFeatures, false);
-
+    document.getElementById("mycroftLink").addEventListener("click", openNewPage, false);
+    document.getElementById("addCurrentSite").addEventListener("click", addCurrentSite, false);
 
     //set search current site
     chrome.tabs.getSelected(null, function (tab) {
@@ -707,8 +708,9 @@ function showOptionsPage() {
     chrome.tabs.create({ url: "options.html" });
 }
 
-function openNewPage(anchor) {
-    chrome.tabs.create({ url: anchor.href });
+function openNewPage(e) {
+    console.log(e);
+    chrome.tabs.create({ url:e.target.href });
     return false;
 }
 

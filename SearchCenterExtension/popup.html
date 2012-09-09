@@ -56,7 +56,7 @@
         <img id="hideFeaturesLink" width="20" src="images/delete.png"/>
     </div>
     <div id="addSite" class="footerMenuItem right">
-        <a onclick="addCurrentSite()" href="">
+        <a id="addCurrentSite" href="">
             <img width="20" src="images/add.png"/>
             <span>Add current website</span></a>
     </div>
@@ -73,10 +73,6 @@
     </div>
     <div id="openSearchError" class="footerMessage hide">
         Oops, something went wrong, this website cannot be added automatically at this time.
-        If you can let me know what site you are trying to add by posting it in the <a
-            href="https://wave.google.com/wave/#restored:wave:googlewave.com!w%252BBO2DwEQbA"
-            onclick="openNewPage(this)">search center public wave</a>, I'll try and fix
-        it.
     </div>
     <div id="noOpenSearch" class="footerMessage hide">
         Sorry, this website cannot <b>currently</b> be added automatically. To add this
@@ -86,10 +82,10 @@
                 the current website"
                 again.
             </li>
-            <li>Search <a id="mycroftLink" href="http://mycroft.mozdev.org/" onclick="openNewPage(this)">
+            <li>Search <a id="mycroftLink" href="http://mycroft.mozdev.org/">
                 mycroft</a> for your domain.
             </li>
-            <li>Add site manually from the <a href="options.html" onclick="showOptionsPage()">options
+            <li>Add site manually from the <a id="linkOptions" href="options.html">options
                 page</a>.
             </li>
         </ul>
