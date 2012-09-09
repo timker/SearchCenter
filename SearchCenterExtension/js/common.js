@@ -21,11 +21,11 @@ var logger = (function () {
 /// due to a bug in chrome 18 normal page textbox focus does not work in a popup
 ///... this is the workaround 
 // todo this should not be in common as it's popup specfifc
-function SetPageFocus() {
+function setPageFocus() {
     if (location.search !== "?foo") {
         location.search = "?foo";
     }
-};
+}
 
 /* Url Helper */
 // todo obsolete this with a url helper

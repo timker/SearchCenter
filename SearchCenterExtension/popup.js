@@ -15,7 +15,7 @@ function LoadDefaults() {
     log("loading popup");
     logger.log = log;
 
-    SetPageFocus();
+    setPageFocus();
     var enginelistElement = document.getElementById("engineList");
     enginelistElement.className = bgPage.settings.smallButtons ? "searchEngineListBase smallEngineList" : "searchEngineListBase searchEngineList";
 
@@ -63,6 +63,13 @@ function LoadDefaults() {
 
     document.body.addEventListener("mouseup", function () { searchText.hideDropDown(); }, false);
 
+    document.getElementById("optionsLink").addEventListener("click", showOptionsPage, false);
+    //todo only one link gets shown
+    document.getElementById("newFeaturesTop").addEventListener("click", viewFeaturePage, false);
+    document.getElementById("featuresLink").addEventListener("click", viewFeaturePage, false);
+    document.getElementById("hideFeaturesLink").addEventListener("click", hideFeatures, false);
+
+
     //set search current site
     chrome.tabs.getSelected(null, function (tab) {
         var address = tab.url;
@@ -79,7 +86,7 @@ function LoadDefaults() {
             var currSite = document.getElementById("currentSiteDiv");
             currSite.setAttribute("style", "");
             currSite.title = "search " + domain;
-        }
+        };
 
         currentSiteImage.setAttribute("onmouseup", "searchCurrentSite()");
         // currentSiteImage.addEventListener("onmouseup", function () { alert('ping'); }, false);
@@ -121,11 +128,11 @@ function drawEngine(engine) {
 
 function openSearchAdded() {
     showStatus("websiteAdded");
-};
+}
 
 function addSiteError() {
     showStatus("openSearchError");
-};
+}
 
 function addSiteUnsupported() {
     showStatus("noOpenSearch");
@@ -136,7 +143,6 @@ function addSiteUnsupported() {
 
 
 function DisplayEngines(nodeId) {
-
     var ulCol = document.getElementById(nodeId);
 
     this.DrawEngine = function (engine) {

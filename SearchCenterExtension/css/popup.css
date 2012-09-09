@@ -27,21 +27,6 @@ body
       
 /************ Title **************/
 
-.titleBar
-{
-position:absolute;
-top:2px;	
-	background-repeat: no-repeat;
-	background-position: right;
-	background-image: url(/images/spinWorld.png);
-	background-color: #EBEFF9;
-	border: 1px solid #B5C7DE;
-	-webkit-border-radius: 6px 6px 0px 0px;
-	padding: 5px 0px 5px 10px;
-	float: left;
-	width: 548px;
-
-}
 
 
 .titleBar > div
