@@ -69,13 +69,13 @@
                 New Group
             </div>
         </div>
-        <div class="bottomMenuButton" onclick="showDialog('resetPrompt')">
+        <div id="resetList"  class="bottomMenuButton" onclick="showDialog('resetPrompt')">
             <img src="images/refresh.png"/>
 
             <div>Reset List</div>
         </div>
 
-        <div class="bottomMenuButton" onclick="ExportEngineList()">
+        <div id="exportEngineList" class="bottomMenuButton" onclick="ExportEngineList()">
             <img src="images/send_mail.png"/>
 
             <div>Export Engines
@@ -92,7 +92,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="resetPrompt" style="display:none;" class="DialogBox">
     <div class="DialogShadow" onclick="hideDialog('resetPrompt')">
