@@ -13,10 +13,8 @@
 
 function imageCache() {
     var cacheList = localStorage["ImageCache"] ? JSON.parse(localStorage["ImageCache"]) : {};
-    
 
-    this.getCachedImage = function(imageUrl) {
-        
+    this.getCachedImage = function (imageUrl) {
         if (cacheList[imageUrl]) {
             log("cache hit");
             return cacheList[imageUrl].imageData;
@@ -25,36 +23,29 @@ function imageCache() {
             log("no cache");
 
             var img = new Image();
-            img.onload = function() {
+            img.onload = function () {
                 log("Image finished Loading... caching");
-
 
                 var dataUrl = getImageData(this);
 
                 //may be slightly better to use img.src rather than imageUrl incase onerror changes the src to a blank image
                 cacheList[imageUrl] = { "imageData": dataUrl }; //{ imageData: dataUrl };
                 localStorage["ImageCache"] = JSON.stringify(cacheList);
-
             };
-            img.onerror = function() {
+            img.onerror = function () {
                 //possibly unhook onload event (or make it use img src)
-
                 log("Image Error");
             };
             img.src = imageUrl;
-
-
         }
-
         return imageUrl;
-    }
+    };
 
 
     this.ClearCache = function() {
         localStorage.removeItem("ImageCache");
         cacheList = {};
-    }
-
+    };
 
     function getImageData(img) {
         var data, canvas, ctx;
@@ -73,6 +64,4 @@ function imageCache() {
         data = canvas.toDataURL();
         return data;
     }
-
-
- }
+}

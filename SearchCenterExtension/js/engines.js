@@ -23,8 +23,7 @@ function engines() {
     if (!(this instanceof engines)) {
         log("being called incorrectly");
     }
-    
-    
+
     //private variables
     var self = this;
     var engineList;
@@ -32,13 +31,11 @@ function engines() {
 
     this.init = function() {
 
-
         var engineString = localStorage["EngineList"];
         if (engineString) {
             log("load save json");
             loadJsonList(JSON.parse(engineString));
-        }
-        else {
+        } else {
             log("load default json");
             loadJsonList(GetJSON("SearchEngineList.json", null));
         }
@@ -51,7 +48,7 @@ function engines() {
             EngineListContentsChanged();
         });
 
-        document.addEventListener("engineUpdated", function(e) {
+        document.addEventListener("engineUpdated", function (e) {
             log("updated");
             //TODO should this raise a engineListEngineUpdated event?
             //todo bug, should only call this if engine is in list
@@ -59,39 +56,32 @@ function engines() {
             EngineListContentsChanged();
         });
 
-    }
+    };
 
 
-   this.getEngineList = function(){
-    return engineList;
-   }
+    this.getEngineList = function () {
+        return engineList;
+    };
 
-   
-
-
-    this.findEngineById = function(id) {
-        return this.findFirst(function(engine) {
+    this.findEngineById = function (id) {
+        return this.findFirst(function (engine) {
             return engine.Id == id;
-        })
-    }
+        });
+    };
 
-
-
-
-    this.findEnginesByKey = function(keyArray) {
-
+    this.findEnginesByKey = function (keyArray) {
         //build hashtable
         if (!engineKeyHash) {
             engineKeyHash = {};
-            this.forEachMatch(function(engine) {
+            this.forEachMatch(function (engine) {
                 engineKeyHash[engine.getShortCutKey()] = engine;
-            }, function(engine) {
+            }, function (engine) {
                 return !engineKeyHash[engine.getShortCutKey()]; //don't overwrite keys already added
             });
         }
 
         var keyEngines = [];
-        keyArray.forEach(function(charItem) {
+        keyArray.forEach(function (charItem) {
 
             if (engineKeyHash[charItem])
                 keyEngines.push(engineKeyHash[charItem]);
@@ -99,79 +89,69 @@ function engines() {
         });
 
         return keyEngines;
-    }
+    };
 
-
-    this.findFirstEngineByDomain = function(domain, includeGroupEngines) {
+    this.findFirstEngineByDomain = function (domain, includeGroupEngines) {
         //todo implent false
 
-        return this.findFirst(function(engine) {
+        return this.findFirst(function (engine) {
             if (includeGroupEngines && engine.Engines) {
                 //todo implement groups
                 //loop through engines
                 //prototype array.findfirst    
-            }
-            else {
-
+            } else {
                 log(engine.getDomain());
                 return domain == engine.getDomain();
             }
         });
 
 
-    }
+    };
 
 
     //should be in EngineManager
     //could rename to get first egine
     //then put getDefaultEngine in engineManager or backgound page?
-    this.getDefaultEngine = function()
-    {
-
+    this.getDefaultEngine = function () {
         //can also search for the last used Engine
-
         //search engine could raise an event that this could capture?
-        
         //TODO bugg assumming there is an enigne in the list
-
         //should use find first (once it doesn't iterate through the whole list) 
         return engineList[0];
-     };
+    };
 
     //just for debugging
-    this.look = function() {
+    this.look = function () {
         log(engineList);
         log(JSON.stringify(engineList));
-    }
+    };
 
 
-    this.forEach = function(action) {
-        this.forEachMatch( function(engine) { action(engine) });
-    }
-
-
+    this.forEach = function (action) {
+        this.forEachMatch(function (engine) { action(engine); });
+    };
 
     //update this to action,filter
     //rename to forEach
     //if match/filterpredicate is not a function error, if it's null create function return true
 //althoug do we want callers of foreachMatch to have access to index or array... NO!
-    this.forEachMatch = function(action, filter) {
-        engineList.forEach(function(item, index, array) { 
-            if((!filter) || filter(item,index,array))
-                action(item,index);
+    this.forEachMatch = function (action, filter) {
+        engineList.forEach(function (item, index, array) {
+            if ((!filter) || filter(item, index, array))
+                action(item, index);
         });
     };
 
    //todo  http: //www.robertnyman.com/javascript/javascript-1.6.html#index-of
-    this.findFirst = function(predicate) {
+    this.findFirst = function (predicate) {
     //TODO shouldn't use findAll as it requires a loop through the whole list
-         return this.findAll(predicate)[0];
-    }
+        return this.findAll(predicate)[0];
+    };
 
     //todo http://www.robertnyman.com/javascript/javascript-1.6.html#every
-    this.findAll = function(predicate) {
+    this.findAll = function (predicate) {
         var foundList = [];
-        this.forEachMatch(function(engine) {
+        this.forEachMatch(function (engine) {
             if (predicate(engine)) {
                 foundList.push(engine);
             }
@@ -179,7 +159,7 @@ function engines() {
         return foundList;
     }
 
-    this.addEngine = function(newEngine) {
+    this.addEngine = function (newEngine) {
         console.log("addEngine");
         engineList.push(newEngine);
         //SaveChanges();
@@ -201,22 +181,20 @@ function engines() {
         //deleted
         //deletedEngine
         //reorded
-        
+
         //but how will we deal with reset?  deletedEngines[] addedEngines[] ??
-         
     };
 
 
 
-    this.reset = function() {
+    this.reset = function () {
         localStorage.removeItem("EngineList");
         this.importJSONList(GetJSON("SearchEngineList.json", null));
       //  EngineListContentsChanged();
-    }
-
+    };
 
 //rename this... as it's more of a swap
-    this.moveEngine = function(firstEngineId, places) {
+    this.moveEngine = function (firstEngineId, places) {
         log("move");
         var currentindex = findEngineIndexById(firstEngineId);
         //cuurrnen+ places is > or < than range
@@ -225,19 +203,17 @@ function engines() {
             var tempEngine = engineList[currentindex];
             engineList[currentindex] = engineList[currentindex + places];
             engineList[currentindex + places] = tempEngine;
-           // SaveChanges();
-            //TODO should raise order changed event
+            // SaveChanges();
+            // TODO should raise order changed event
 
             EngineListContentsChanged();
-            
-
             return true;
         } else {
             return false;
         }
     };
 
-    this.moveEngineBelow = function(item, targetEngineLocation) {
+    this.moveEngineBelow = function (item, targetEngineLocation) {
 
         log(targetEngineLocation);
         log(engine);
@@ -247,10 +223,9 @@ function engines() {
 
         //todo create function like below or .findIndex(predicate)
         //var removeIndex= engineList.findIndexOfElement(item);
-        engineList.forEach(function(currentItem, index) {
+        engineList.forEach(function (currentItem, index) {
             if (currentItem == item) {
                 removeIndex = index;
-
             }
 
         });
@@ -258,7 +233,7 @@ function engines() {
         engineList.splice(removeIndex, 1);
 
         var insertIndex;
-        engineList.forEach(function(currentItem, index) {
+        engineList.forEach(function (currentItem, index) {
             if (currentItem == targetEngineLocation) {
                 insertIndex = index;
             }
@@ -266,58 +241,54 @@ function engines() {
 
         engineList.splice(insertIndex, 0, item);
         EngineListContentsChanged();
-
-    }
-
-
+    };
 
     this.moveEngineAbove = function(item, targetEngineLocation) {
-    if (item == targetEngineLocation) {
-        return;
-    }
+        if (item == targetEngineLocation) {
+            return;
+        }
         //a quick hack to get an item "after" current item
         engineList.reverse();
         self.moveEngineBelow(item, targetEngineLocation);
         engineList.reverse();
         EngineListContentsChanged();
-    }
+    };
 
-   this.exportEngines = function() {
+    this.exportEngines = function () {
         return JSON.stringify(engineList);
     };
 
-    this.deleteEnginesById = function(id) {
+    this.deleteEnginesById = function (id) {
 
-        removeObjects(engineList, function(engine) {
+        removeObjects(engineList, function (engine) {
             return engine.Id == id;
         });
 
         EngineListContentsChanged();
-    }
+    };
 
     //this can be obsoleted once we change the array storage method
-    this.deleteEnginesBySearchUrl = function(searchUrl) {
+    this.deleteEnginesBySearchUrl = function (searchUrl) {
 
-        removeObjects(engineList, function(engine) {
+        removeObjects(engineList, function (engine) {
             return engine.SearchUrl == searchUrl;
         });
 
         EngineListContentsChanged();
-    }
+    };
 
-    this.copyEngineToGroup = function(engine, group) {
+    this.copyEngineToGroup = function (engine, group) {
         group.CopyNewEngine(engine);
         EngineListContentsChanged();
-    } 
+    };
 
-    this.importJSONList = function(jsonList) {
-    log("import");
-    //todo should suppress the engineupdated event as it is not part of the parent list for the most part
+    this.importJSONList = function (jsonList) {
+        log("import");
+        //todo should suppress the engineupdated event as it is not part of the parent list for the most part
         //then when setting to enginelist raise an event
-        
         loadJsonList(jsonList);
         EngineListContentsChanged();
-    }
+    };
 
     //**************** private methods
     function loadJsonList(jsonList) {
@@ -327,12 +298,11 @@ function engines() {
 
             //TODO use array.map
             //https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Array/map
-            jsonList.forEach(function(jsonEngine) {
+            jsonList.forEach(function (jsonEngine) {
                 //log(jsonEngine);
                 if (jsonEngine.Engines) {
                     jsonArray.push(engineGroup.createEngineGroupFromJson(jsonEngine));
-                }
-                else {
+                } else {
                     jsonArray.push(engine.CreateEngineFromJSON(jsonEngine));
                     log(jsonArray[jsonArray.length - 1].Id);
                     log(jsonArray[jsonArray.length - 1]);
@@ -343,7 +313,6 @@ function engines() {
             log(err);
         }
         engineList = jsonArray;
-    
     }
 
     //private
