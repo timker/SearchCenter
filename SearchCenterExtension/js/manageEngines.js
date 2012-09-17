@@ -15,6 +15,9 @@ function load() {
         document.body.className = "";
     }
 
+    document.getElementById("exportEngineList").addEventListener("click", ExportEngineList, false);
+    document.getElementById("resetList").addEventListener("click", function () { showDialog('resetPrompt'); }, false);
+
     var trash = document.getElementById("trash");
 
     trash.addEventListener("dragover", function (event) {
