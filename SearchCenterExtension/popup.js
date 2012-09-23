@@ -2,11 +2,10 @@
 
 document.addEventListener("DOMContentLoaded", LoadDefaults, false);
 
-//******** intial
+//******** initial
 var bgPage = chrome.extension.getBackgroundPage();
 var engines = bgPage.engines;
 var displayEngines;
-var displayMulti;
 var engineList = new engineList();
 this.searchText;
 
@@ -19,18 +18,10 @@ function LoadDefaults() {
     var enginelistElement = document.getElementById("engineList");
     enginelistElement.className = bgPage.settings.smallButtons ? "searchEngineListBase smallEngineList" : "searchEngineListBase searchEngineList";
 
-
-
-
-
     displayEngines = new DisplayEngines("engineList");
-    //  displayMulti = new DisplayEngines("multiList");
 
     var searchBox = document.getElementById("searchText");
     searchBox.focus();
-
-
-
 
     //wires up hotkey events
     // searchBox.addEventListener('keydown', function() {alert('ping') }, false);
@@ -39,13 +30,9 @@ function LoadDefaults() {
     searchText = new textBoxManager(bgPage.settings.useSuggest); //come up with a better name than textman & searchttext... textvalueManager
     // this.searchText.init();//since init starts an asyc call to bgpage, must make sure the callback is ready (depends on textManager)
 
-
     engines.forEach(function (engine) {
         displayEngines.DrawEngine(engine);
     });
-
-
-
 
     //set the defaultsearch
     var defaultEngine = bgPage.getDefaultEngine();

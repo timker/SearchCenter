@@ -7,7 +7,7 @@
     <script src="js/engine.js" type="text/javascript"></script>
     <script src="js/options.js" type="text/javascript"></script>
 </head>
-<body class="debugOff" onload="load()">
+<body class="debugOff">
 <div id="searchBar" class="titleBar">
     <!--<span>Search Center</span>-->
     <img src="images/process.png" width="24px"/>
@@ -32,7 +32,7 @@
         <div id="notifictionMessage">
             Your notifcation message here
         </div>
-        <img src="images/delete.png" style="width: 20px; float: right;" onclick="hideUserMessage()"/>
+        <img id="notificationButton" src="images/delete.png" style="width: 20px; float: right;" />
 
         <div style="color: White; float: right">
             |
@@ -42,16 +42,15 @@
 <div class="optionList" style="">
 
     <div>
-        <input id="NewTabCheckBox" onclick="setSameTabSearch(this)" type="checkbox"/>
+        <input id="NewTabCheckBox" type="checkbox"/>
         <label for="NewTabCheckBox">
             Search in new tab on Left click, enter, shift + enter</label>
-
         <div class="info">
             Toggle between opening in a new/same tab when left clicking an engine
         </div>
     </div>
     <div>
-        <input id="lastEngineCheckBox" onclick="setLastEngineSearch(this)" type="checkbox"/>
+        <input id="lastEngineCheckBox" type="checkbox"/>
         <label for="lastEngineCheckBox">
             Set the default search to the last search used</label>
 
@@ -95,7 +94,7 @@
         <div class="info">Pages will have to be reloaded before the new key takes effect</div>
     </div>
     <div>
-        <div class="Button" style="margin-right: 20px" onclick="ClearImageCache()">
+        <div id="clearImageCache"  class="Button" style="margin-right: 20px">
             Clear Image Cache
         </div>
         <div class="info">

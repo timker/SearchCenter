@@ -4,7 +4,9 @@ var backgroundPage = chrome.extension.getBackgroundPage();
 var engines = backgroundPage.engines;
 var editEngine;
 
-        //can we make this private
+
+document.addEventListener("DOMContentLoaded", load, false);
+
 function load() {
     "use strict";
     //set debug mode
@@ -13,6 +15,11 @@ function load() {
         //http://stackoverflow.com/questions/195951/change-an-elements-css-class-with-javascript
         document.body.className = "";
     }
+
+    document.getElementById("NewTabCheckBox").addEventListener("click", setSameTabSearch);
+    document.getElementById("lastEngineCheckBox").addEventListener("click", setLastEngineSearch);
+    document.getElementById("notificationButton").addEventListener("click", hideUserMessage);
+    document.getElementById("clearImageCache").addEventListener("click", ClearImageCache);
 
     new BindCheckBox("smallIconsCheckBox", backgroundPage.settings, "smallButtons");
     new BindCheckBox("useSuggestionCheckbox", backgroundPage.settings, "useSuggest");
@@ -168,15 +175,13 @@ function drawEngine(engine) {
 
 //***********************************************//
 
-function setSameTabSearch(checkbox) {
-    "use strict";
-    backgroundPage.setOpenSearchInNewTab(checkbox.checked);
+function setSameTabSearch() {
+    backgroundPage.setOpenSearchInNewTab(this.checked);
     showUserMessage("Mouse behaviour updated");
 }
 
-function setLastEngineSearch(checkBox) {
-    "use strict";
-    backgroundPage.settings.useLastEngine = checkBox.checked;
+function setLastEngineSearch() {
+    backgroundPage.settings.useLastEngine = this.checked;
     showUserMessage("default search behaviour updated");
 }
 
