@@ -5,7 +5,8 @@ var currentDragElement;
 
 Element.prototype.addClass = function (value) { this.className = this.className + " " + value; };
 
-//can we make this private
+document.addEventListener("DOMContentLoaded", load, false);
+
 function load() {
 
     //set debug mode
@@ -144,7 +145,7 @@ function loadEngines() {
     engines.forEach(function (item) { drawItem(engineDom, item); });
 }
 
-function drawItem(engineDom,item) {
+function drawItem(engineDom, item) {
     if (item.Engines) {//todo need a better way to tell if it's an engine/enginegroup
         engineDom.appendChild(displayEngineGroup(item));
     } else {
@@ -163,7 +164,7 @@ function displayEngineGroup(engGroup) {
     li.engineGroup = engGroup; //do we have to set this here? can we get rid of it?
 
 
-    li.addEventListener("dragstart", function(event) {
+    li.addEventListener("dragstart", function (event) {
         log(event);
         currentDragElement = this;
         log("gdrag");
@@ -217,7 +218,7 @@ function displayEngineGroup(engGroup) {
     li.appendChild(engineGroupDiv);
 
 
-    engGroup.Engines.forEach(function(engine) {
+    engGroup.Engines.forEach(function (engine) {
         //var eImg = document.createElement("img");
         //eImg.setAttribute("src", engine.IconUrl);
         var eImg = document.createElement("img");
@@ -232,7 +233,7 @@ function displayEngineGroup(engGroup) {
 
         eImg.addEventListener("click", engineDialogManager(engine), false);
         eImg.engine = engine;
-        eImg.addEventListener("dragstart", function(event) {
+        eImg.addEventListener("dragstart", function (event) {
             currentDragElement = this;
             event.cancelBubble = true;
 
@@ -316,7 +317,7 @@ function displayEngine(engine) {
     li.engine = engine;
     li.addEventListener("click", engineDialogManager(engine), false);
     li.appendChild(CreateMoveArea("moveEngineUpDrop", engine, moveAbove));
-    li.appendChild(CreateMoveArea("moveEngineDownDrop", engine,moveBelow));
+    li.appendChild(CreateMoveArea("moveEngineDownDrop", engine, moveBelow));
     var engineDiv = document.createElement("span");
     engineDiv.setAttribute("class", "searchEngineBubble");
     li.setAttribute("draggable", "true");
