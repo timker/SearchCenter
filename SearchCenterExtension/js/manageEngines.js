@@ -16,7 +16,10 @@ function load() {
         document.body.className = "";
     }
 
+    document.getElementById("importButton").addEventListener("click", Import, false);
+
     document.getElementById("exportEngineList").addEventListener("click", ExportEngineList, false);
+    document.getElementById("cancelExport").addEventListener("click", function () {  toggleDialog('exportBox'); }, false);
     document.getElementById("resetList").addEventListener("click", function () { showDialog('resetPrompt'); }, false);
   //  document.getElementById("engineGroupSaveButton").addEventListener("click", saveGroup, false);
     var trash = document.getElementById("trash");
@@ -399,7 +402,7 @@ function showDialog(id) {
 //maybe this isn't relivent anymore
 function toggleDialog(elementName) {
     var element = document.getElementById(elementName);
-    if (element.style.display == 'none') {
+    if (element.style.display === 'none') {
         element.style.display = "block";
     } else {
         element.style.display = "none";
