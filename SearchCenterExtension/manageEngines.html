@@ -40,7 +40,7 @@
 
 
         <div id="notifictionMessage">Your notifcation message here</div>
-        <img src="images/delete.png" style="width:20px;float:right;" onclick="hideUserMessage()"/>
+        <img id="hideMessage" src="images/delete.png" style="width:20px;float:right;" />
 
         <div style="color:White;float:right">|</div>
     </div>
@@ -94,18 +94,18 @@
 </div>
 
 <div id="resetPrompt" style="display:none;" class="DialogBox">
-    <div class="DialogShadow" onclick="hideDialog('resetPrompt')">
+    <div class="DialogShadow">
         <div class="AddEngineBox">
             Are you sure? this will remove any new engines!
-            <a id="A4" type="button" class="Button" onclick="hideDialog('resetPrompt')">Cancel</a>
-            <a id="a5" type="button" class="Button" onclick="ResetEngineList()">Reset</a>
+            <a id="cancelResetEngineList" type="button" class="Button">Cancel</a>
+            <a id="resetEngineList" type="button" class="Button">Reset</a>
         </div>
     </div>
 </div>
 
 
 <div id="dialogBox" class="DialogBox" style="display:none">
-    <div class="DialogShadow" onclick="hideAddEngineDialog()"></div>
+    <div class="DialogShadow"></div>
 
     <div class="AddEngineBox">
         <div class="EngineLine">
@@ -138,8 +138,8 @@
 
         </div>
         <div class="EngineLine clear">
-            <a id="Button3" type="button" class="Button" onclick="hideAddEngineDialog()">Cancel</a>
-            <a id="addButton" type="button" class="Button" onclick="saveEngine()">Add</a>
+            <a id="cancelAddEngine" type="button" class="Button">Cancel</a>
+            <a id="addButton" type="button" class="Button">Add</a>
 
         </div>
     </div>
@@ -147,7 +147,7 @@
 
 
 <div id="engineGroupEdit" class="DialogBox" style="display:none">
-    <div class="DialogShadow" onclick="toggleDialog('engineGroupEdit')"></div>
+    <div class="DialogShadow"></div>
 
     <div class="AddEngineBox">
         <div class="EngineLine">

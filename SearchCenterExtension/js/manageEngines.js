@@ -1,4 +1,6 @@
-﻿var backgroundPage = chrome.extension.getBackgroundPage();
+﻿/*jslint browser: true*/
+
+var backgroundPage = chrome.extension.getBackgroundPage();
 var engines = backgroundPage.engines;
 // var editEngine;
 var currentDragElement;
@@ -17,10 +19,14 @@ function load() {
     }
 
     document.getElementById("importButton").addEventListener("click", Import, false);
-
+    document.getElementById("hideMessage").addEventListener("click", hideUserMessage, false);
     document.getElementById("exportEngineList").addEventListener("click", ExportEngineList, false);
     document.getElementById("cancelExport").addEventListener("click", function () {  toggleDialog('exportBox'); }, false);
     document.getElementById("resetList").addEventListener("click", function () { showDialog('resetPrompt'); }, false);
+    document.getElementById("resetEngineList").addEventListener("click", ResetEngineList);
+    document.getElementById("cancelResetEngineList").addEventListener("click", function () { hideDialog('resetPrompt'); }, false);
+
+
   //  document.getElementById("engineGroupSaveButton").addEventListener("click", saveGroup, false);
     var trash = document.getElementById("trash");
 
@@ -412,7 +418,9 @@ function toggleDialog(elementName) {
 
 function engineDialogManager(engineValue) {
     return function (event) {
+        var that = this;
         showAddEngineDialog(); //should be show
+
         if (engineValue) {
             document.getElementById('iconUrl').value = engineValue.IconUrl;
             document.getElementById('searchName').value = engineValue.SearchEngineName;
@@ -426,7 +434,7 @@ function engineDialogManager(engineValue) {
         }
 
         event.cancelBubble = true;
-        saveEngine = function () {//should we move save out of  the click event..
+        this.saveEngine = function () {//should we move save out of  the click event..
             var iconUrl = document.getElementById('iconUrl').value;
             var searchEngineName = document.getElementById('searchName').value;
             var searchUrl = document.getElementById('searchUrl').value;
@@ -446,8 +454,17 @@ function engineDialogManager(engineValue) {
             }
             hideAddEngineDialog();
             redrawEngines();
-            //alert("saving");
+            document.getElementById("addButton").removeEventListener("click", that.saveEngine);
+
         };
+
+        this.cancelEngine = function () {
+            hideAddEngineDialog();
+            document.getElementById("addButton").removeEventListener("click", that.saveEngine);
+        };
+
+        document.getElementById("cancelAddEngine").addEventListener("click", that.cancelEngine);
+        document.getElementById("addButton").addEventListener("click", that.saveEngine);
     };
 }
 
@@ -507,6 +524,7 @@ function ResetEngineList() {
     engines.reset();
     redrawEngines();
     showUserMessage("engine list reset");
+    hideDialog('resetPrompt');
 }
 
 function ExportEngineList() {
