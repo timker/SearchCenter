@@ -2,7 +2,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Features</title>
+    <script src="js/features.js" type="text/javascript"></script>
     <link href="css/common.css" rel="stylesheet" type="text/css"/>
     <style>
 
@@ -122,39 +123,12 @@
 
 
     </style>
-    <script>
-
-        var bgPage = chrome.extension.getBackgroundPage();
-
-        function load() {
-            document.getElementById("installed").innerText = "Installed:" + bgPage.version.installedAt + " Updated:" + bgPage.version.updatedAt;
-
-            //getElementsByClassName
-
-//              var allParas = document.getElementsByTagName("p");
-//              console.log(allParas);
-//              for (var index in allParas) {
-//                  console.log(allParas[index]);
-//                  
-//                  allParas[index].addEventListener('click', function() { alert('tggle') }, false);
-
-            //   }
-//foreach 
-//              var num = allParas.length;
-
-//              alert("There are " + num + " <p> elements in this document"); 
-
-        }
-
-    </script>
 </head>
-<body onload="load()">
-
+<body>
 <div class="titleBar">
     <!--<span>Search Center</span>-->
     <img src="images/light_bulb.png" width="24px"/>
     <span>Features</span>
-
 </div>
 <nav>
     <ul>
