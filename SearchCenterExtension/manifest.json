@@ -36,7 +36,8 @@
       "js": ["contentScripts/mycroft.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "web_accessible_resources": ["images/spinWorld.png"]
 }
 		
 
