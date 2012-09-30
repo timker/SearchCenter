@@ -1,6 +1,4 @@
-﻿
-
-document.addEventListener("DOMContentLoaded", LoadDefaults, false);
+﻿document.addEventListener("DOMContentLoaded", LoadDefaults, false);
 
 //******** initial
 var bgPage = chrome.extension.getBackgroundPage();
@@ -108,8 +106,6 @@ this.publicMethods = new function (context) {
 
 } (this);
 
-
-
 function drawEngine(engine) {
     displayEngines.DrawEngine(engine);
 }
@@ -144,7 +140,7 @@ function DisplayEngines(nodeId) {
         li.setAttribute("alt", SearchEngineData.SearchEngineName);
         var div = document.createElement('div');
 
-        div.setAttribute("onmouseup", "engineClick(this,event,'" + SearchEngineData.Id + "')");
+        div.addEventListener("click", function (event) { engineClick(event, SearchEngineData.Id); }, false);
 
         var span = document.createElement('span');
         span.appendChild(document.createTextNode(SearchEngineData.name));
@@ -205,7 +201,6 @@ function textBoxManager(useSuggest) {
         //can we make this into a propery?
         hasSelection: function () { return this.selectedText != null },
         index: 0
-
     }
 
 
@@ -572,7 +567,7 @@ tabBehaviour.fromKeyPress = function (keyPress) {
 
 
 
-function engineClick(sender, event, engineId) {
+function engineClick(event, engineId) {
     var tabAction = tabBehaviour.fromMouse(event);
     switch (tabAction) {
         case tabBehaviour.Multi:
@@ -726,9 +721,13 @@ function hideFeatures() {
 
 
 function addCurrentSite() {
-    showStatus("loading");
     log("loading");
+    showStatus("loading");
     bgPage.addCurrentWebsite();
+  //  return false;
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
 }
 
 function showStatus(code) {
@@ -761,9 +760,7 @@ function showStatus(code) {
             hideElement("loading");
             showElement("websiteAdded");
             break;
-
     }
-
 }
 
 function showElement(elementName) {
