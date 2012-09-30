@@ -7,12 +7,12 @@ var logger = (function () {
     // basic logger that should be overridden 
     myLogger.log = function (value) {
         if (console) {
-            console.log(value); 
+            console.log(value);
         }
-    }
+    };
 
     return myLogger;
-} ());
+}());
 
 
 /* InitPage */

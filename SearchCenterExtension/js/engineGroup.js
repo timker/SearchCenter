@@ -7,7 +7,7 @@
     this.Engines = [];
 
 
-    this.CopyNewEngine = function(eng) {
+    this.CopyNewEngine = function (eng) {
 
         //this.Engines.push(engine.CreateEngineFromJSON(engine1));
         this.Engines.push(engine.CopyEngine(eng));
@@ -23,14 +23,14 @@
         log("engineGroupUpdated Event Firing");
         document.dispatchEvent(evt);
         log("engineGroupUpdated Event Fired");
-    }
+    };
 
-    this.save = function() {
+    this.save = function () {
         var evt = document.createEvent("Event");
         evt.initEvent("engineGroupUpdated", false, false);
         evt.engineGroup = this;
         document.dispatchEvent(evt);
-    }
+    };
 
 
 }
@@ -41,10 +41,9 @@ engineGroup.createEngineGroupFromJson = function(jsonEngine) {
     engG.Id = jsonEngine.Id;//maybe this should create a new id, just to consistant
     engG.name = jsonEngine.name;
     engG.IconUrl = jsonEngine.IconUrl;
-    jsonEngine.Engines.forEach(function(enge) {
-       engG.Engines.push(engine.CreateEngineFromJSON(enge));
+    jsonEngine.Engines.forEach(function (enge) {
+        engG.Engines.push(engine.CreateEngineFromJSON(enge));
     });
 
-   
     return engG;
 };
