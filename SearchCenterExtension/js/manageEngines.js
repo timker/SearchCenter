@@ -18,7 +18,7 @@ function load() {
 
     document.getElementById("exportEngineList").addEventListener("click", ExportEngineList, false);
     document.getElementById("resetList").addEventListener("click", function () { showDialog('resetPrompt'); }, false);
-
+  //  document.getElementById("engineGroupSaveButton").addEventListener("click", saveGroup, false);
     var trash = document.getElementById("trash");
 
     trash.addEventListener("dragover", function (event) {
@@ -292,7 +292,7 @@ function moveAbove(targetItem) {
         engines.moveEngineBelow(item, targetItem);
         currentDragElement = null;
         redrawEngines();
-    }
+    };
 }
 
 function moveBelow(targetItem) {
@@ -450,6 +450,13 @@ function engineDialogManager(engineValue) {
 
 function showGroupEngineDialog(engGroup) {
     return function (event) {
+      //  document.getElementById("engineGroupSaveButton").rem
+        var that = this;
+
+        var removeEvents = function () {
+            document.getElementById("engineGroupSaveButton").removeEventListener("click", that.saveGroup);
+            document.getElementById("engineGroupCancelButton").removeEventListener("click", that.cancel);
+        };
         toggleDialog("engineGroupEdit");
         document.getElementById("engineGroupName").value = "";
         document.getElementById("engineGroupIcon").value = chrome.extension.getURL("/images/folder.png");
@@ -458,7 +465,13 @@ function showGroupEngineDialog(engGroup) {
             document.getElementById("engineGroupName").value = engGroup.name;
             document.getElementById("engineGroupIcon").value = engGroup.IconUrl;
         }
-        saveGroup = function () {//todo why does this need to be inside?
+
+        this.cancel = function () {
+            toggleDialog("engineGroupEdit");
+            removeEvents();
+        };
+
+        this.saveGroup = function () {//todo why does this need to be inside?
             //                var engGroup = new engineGroup();
             //                engGroup.name = "Group";
             //                engGroup.IconUrl =
@@ -477,8 +490,10 @@ function showGroupEngineDialog(engGroup) {
             engGroup.save();
             redrawEngines();
             toggleDialog("engineGroupEdit");
+            removeEvents();
         };
-
+        document.getElementById("engineGroupSaveButton").addEventListener("click", that.saveGroup, false);
+        document.getElementById("engineGroupCancelButton").addEventListener("click", that.cancel, false);
     };
 }
 
