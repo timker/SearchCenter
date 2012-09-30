@@ -8,7 +8,7 @@
 function engineList() {
     var list = [];
 
-    this.add = function(engine) {
+    this.add = function (engine) {
         //avoid adding duplicates
         //this deletes the item if there are any
 
@@ -19,9 +19,9 @@ function engineList() {
         }
         //last item will always get added to the start of the list
         list.unshift(engine);
-    }
+    };
 
-    this.remove = function(engine) {
+    this.remove = function (engine) {
         for (var i = list.length - 1; i >= 0; i--) {
             if (list[i] == engine) {
                 this.removeAt(i);
