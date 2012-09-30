@@ -29,7 +29,7 @@ function load() {
 
   //  document.getElementById("engineGroupSaveButton").addEventListener("click", saveGroup, false);
     var trash = document.getElementById("trash");
-
+    trash.addEventListener("click", function () { alert('drag an item over the trash can to delete'); });
     trash.addEventListener("dragover", function (event) {
     //event.dataTransfer.dropEffect = "copy";
     //event.dataTransfer.dropEffect = "move";

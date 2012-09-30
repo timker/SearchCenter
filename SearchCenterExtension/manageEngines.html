@@ -18,7 +18,6 @@
 </div>
 <nav>
     <ul>
-
         <li><img src="images/process.png" width="18px"/><a href="options.html">Options</a></li>
         <li>|</li>
         <li><img src="images/light_bulb.png" width="18px"/><a href="manageEngines.html">Manage Engines</a></li>
@@ -30,27 +29,19 @@
         </li>
         <li class="debug">|</li>
         <li class="debug"><img src="images/light_bulb.png" width="18px"/><a href="debug.html">Debug</a></li>
-
     </ul>
 </nav>
 
-
 <div id="notificationBox">
     <div style="">
-
-
         <div id="notifictionMessage">Your notifcation message here</div>
         <img id="hideMessage" src="images/delete.png" style="width:20px;float:right;" />
-
         <div style="color:White;float:right">|</div>
     </div>
 </div>
 
-
 <div class="searchEngineList" style="">
     <ul id="engineElements" style="padding-left:20px;"/>
-
-
 </div>
 <!--<div style="clear:both" />-->
 <div class="bottomMenuBuffer"></div>
@@ -71,24 +62,17 @@
         </div>
         <div id="resetList"  class="bottomMenuButton">
             <img src="images/refresh.png"/>
-
             <div>Reset List</div>
         </div>
 
         <div id="exportEngineList" class="bottomMenuButton">
             <img src="images/send_mail.png"/>
-
-            <div>Export Engines
-            </div>
+            <div>Export Engines</div>
         </div>
 
-
-        <div id="trash" class="bottomMenuButton trashable "
-             onclick="alert('drag an item over the trash can to delete')">
+        <div id="trash" class="bottomMenuButton trashable ">
             <img src="images/trash.png"/>
-
             <div>Delete</div>
-
         </div>
     </div>
 </div>
@@ -109,7 +93,6 @@
 
     <div class="AddEngineBox">
         <div class="EngineLine">
-
             <span>Name </span>
             <input id="searchName" type="text" class="TextBox"/>
         </div>
@@ -174,16 +157,14 @@
 
 
 <div id="exportBox" class="DialogBox" style="display:none">
-    <div class="DialogShadow" onclick="toggleDialog('exportBox')"></div>
+    <div class="DialogShadow"></div>
 
     <div class="AddEngineBox">
         <div>
             <span>Copy this text into a file, and import it later.</span>
             <!--<div class="Button Right">?</div>-->
             <textarea id="engineText" style="width:100%" rows="10"></textarea>
-
         </div>
-
         <div>
             <span>Warning, this feature may break between versions</span>
         </div>
