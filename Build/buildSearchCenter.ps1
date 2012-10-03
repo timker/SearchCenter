@@ -1,3 +1,4 @@
+cls
 #possible workflow
 #incrementby 1
 #commit
@@ -9,7 +10,7 @@
 
 
 #todo
-#write colors
+#pass in variables... make is more lib like
 #cancel on error
 #open powershell
 #copy folder
@@ -23,9 +24,15 @@ $filename = "searchcenter.zip"
 $deployFolder = "..\deploy\"
 $deploylocation = $deployFolder + $filename
 
+function DeletePreviousItem () {
+# needs to ignore errors
 Remove-Item $deploylocation
-& "C:\Program Files (x86)\7-Zip\7z.exe" a $deploylocation "..\searchcenterExtension\*.*" -r
+}
 
+function ZipFilesInFolder {
+#should pass files location and destination
+& "C:\Program Files (x86)\7-Zip\7z.exe" a $deploylocation "..\searchcenterExtension\*.*" -r
+}
 
 function OpenInstallLocation (){
     write-Host "opening webstore" -foreground "yellow"
@@ -33,18 +40,16 @@ function OpenInstallLocation (){
 }
 
 function CopyText ($text) {
-#http://technet.microsoft.com/en-us/library/ee177031.aspx
-#http://www.itidea.nl/index.php/powershell-choose-between-colored-host-text-or-write-to-an-output-file-not-anymore/
- write-Host "currently broken" -foreground "red"
-    write-Host "cp text" -foreground "yellow" -nonewline;
-write-Host  $text -foreground "yellow"
+    #$fullpath | foreach { $_.Path } | . $env:SystemRoot\system32\clip.exe
+    #new-alias  Out-Clipboard $env:SystemRoot\system32\clip.exe
+    $text | . $env:SystemRoot\system32\clip.exe
+    Write-Host "copied text: " -foreground "blue" -nonewline;
+    write-Host   $text
 }
-#new-alias  Out-Clipboard $env:SystemRoot\system32\clip.exe
-$fullpath = resolve-path $deploylocation | select Path
-write-Host copying $fullpath -foreground "yellow"
-#write-host (2 + 2) -foreground "magenta"
-$fullpath | foreach { $_.Path } | . $env:SystemRoot\system32\clip.exe
 
-#OpenInstallLocation
-$fullpath | foreach { $_.Path } | CopyText
-#CopyText "asdf"
+DeletePreviousItem
+ZipFilesInFolder
+OpenInstallLocation
+
+$fullpath = resolve-path $deploylocation
+CopyText $fullpath.Path 
