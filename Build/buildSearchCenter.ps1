@@ -7,15 +7,11 @@ cls
 #pull down zip -- (will this be a repo, if so fail)
 #upload
 
-
-
 #todo
 #pass in variables... make is more lib like
 #cancel on error
 #open powershell
-#copy folder
 #check for existence of zip, maybe even store 7z in extenal folder
-#delete old version
 # test for existence before deletion
 #update version number
 #tag
