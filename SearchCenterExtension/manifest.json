@@ -1,6 +1,6 @@
 ﻿{ 
   "name": "Search Center",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Quickly Search & re-search multiple sites without having to type your search terms again and again",
   "permissions": [
 	"contextMenus",
