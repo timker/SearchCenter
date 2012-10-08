@@ -74,8 +74,7 @@ function LoadDefaults() {
             currSite.title = "search " + domain;
         };
 
-        currentSiteImage.setAttribute("onmouseup", "searchCurrentSite()");
-        // currentSiteImage.addEventListener("onmouseup", function () { alert('ping'); }, false);
+        currentSiteImage.addEventListener("mouseup", searchCurrentSite, false);
         //fix  getdomain
         //fix  
         //look for opensearch first, perhaps save it 
