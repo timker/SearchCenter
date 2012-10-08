@@ -100,10 +100,10 @@ this.publicMethods = new function (context) {
     return { selectedTextFound: function (result) {
         context.searchText.setSelectedText(result);
     }
-    }
+        };
 
 
-} (this);
+}(this);
 
 function drawEngine(engine) {
     displayEngines.DrawEngine(engine);
@@ -139,7 +139,12 @@ function DisplayEngines(nodeId) {
         li.setAttribute("alt", SearchEngineData.SearchEngineName);
         var div = document.createElement('div');
 
-        div.addEventListener("click", function (event) { engineClick(event, SearchEngineData.Id); }, false);
+        div.addEventListener("mouseup", function (event) { engineClick(event, SearchEngineData.Id); }, false);
+        div.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
 
         var span = document.createElement('span');
         span.appendChild(document.createTextNode(SearchEngineData.name));
@@ -150,7 +155,6 @@ function DisplayEngines(nodeId) {
         div.appendChild(img);
         div.appendChild(span);
         div.setAttribute("class", "searchEngine");
-
 
         li.appendChild(div);
         return li;
