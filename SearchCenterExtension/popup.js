@@ -37,7 +37,7 @@ function LoadDefaults() {
     var defaultImage = document.getElementById("defaultSearchImage");
     var defaultSearchDiv = document.getElementById("defaultSearchDiv"); //maybe can attach to image, mouse button may have been dodgy
     defaultSearchDiv.title = defaultEngine.SearchEngineName;
-    defaultSearchDiv.setAttribute("onmouseup", "defaultSearch(tabBehaviour.fromMouse(event))");
+    defaultSearchDiv.addEventListener("mouseup", function (event) { defaultSearch(tabBehaviour.fromMouse(event)); });
 
     //TODO LOW needs to be updated, when order of engines are updated (use nofication)
     defaultImage.src = getCachedImage(defaultEngine.IconUrl);
